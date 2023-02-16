@@ -3,24 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		453FB749299E196B0074D441 /* HomeViewConcoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453FB748299E196B0074D441 /* HomeViewConcoller.swift */; };
 		455F847E299E18B200A22DA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455F847D299E18B200A22DA0 /* AppDelegate.swift */; };
 		455F8480299E18B200A22DA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455F847F299E18B200A22DA0 /* SceneDelegate.swift */; };
-		455F8482299E18B200A22DA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455F8481299E18B200A22DA0 /* ViewController.swift */; };
-		455F8485299E18B200A22DA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455F8483299E18B200A22DA0 /* Main.storyboard */; };
 		455F8487299E18B200A22DA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 455F8486299E18B200A22DA0 /* Assets.xcassets */; };
 		455F848A299E18B200A22DA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455F8488299E18B200A22DA0 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		453FB748299E196B0074D441 /* HomeViewConcoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewConcoller.swift; sourceTree = "<group>"; };
 		455F847A299E18B200A22DA0 /* SmartCommerce_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartCommerce_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		455F847D299E18B200A22DA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		455F847F299E18B200A22DA0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		455F8481299E18B200A22DA0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		455F8484299E18B200A22DA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		455F8486299E18B200A22DA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		455F8489299E18B200A22DA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		455F848B299E18B200A22DA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -37,6 +35,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		453FB74A299E198B0074D441 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				453FB74B299E19920074D441 /* HomeViewController */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		453FB74B299E19920074D441 /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				453FB748299E196B0074D441 /* HomeViewConcoller.swift */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
 		455F8471299E18B200A22DA0 = {
 			isa = PBXGroup;
 			children = (
@@ -58,8 +72,7 @@
 			children = (
 				455F847D299E18B200A22DA0 /* AppDelegate.swift */,
 				455F847F299E18B200A22DA0 /* SceneDelegate.swift */,
-				455F8481299E18B200A22DA0 /* ViewController.swift */,
-				455F8483299E18B200A22DA0 /* Main.storyboard */,
+				453FB74A299E198B0074D441 /* Scenes */,
 				455F8486299E18B200A22DA0 /* Assets.xcassets */,
 				455F8488299E18B200A22DA0 /* LaunchScreen.storyboard */,
 				455F848B299E18B200A22DA0 /* Info.plist */,
@@ -103,7 +116,7 @@
 				};
 			};
 			buildConfigurationList = 455F8475299E18B200A22DA0 /* Build configuration list for PBXProject "SmartCommerce_iOS" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -127,7 +140,6 @@
 			files = (
 				455F848A299E18B200A22DA0 /* LaunchScreen.storyboard in Resources */,
 				455F8487299E18B200A22DA0 /* Assets.xcassets in Resources */,
-				455F8485299E18B200A22DA0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +150,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				455F8482299E18B200A22DA0 /* ViewController.swift in Sources */,
 				455F847E299E18B200A22DA0 /* AppDelegate.swift in Sources */,
+				453FB749299E196B0074D441 /* HomeViewConcoller.swift in Sources */,
 				455F8480299E18B200A22DA0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,14 +159,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		455F8483299E18B200A22DA0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				455F8484299E18B200A22DA0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		455F8488299E18B200A22DA0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,7 +296,6 @@
 				INFOPLIST_FILE = SmartCommerce_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +323,6 @@
 				INFOPLIST_FILE = SmartCommerce_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
