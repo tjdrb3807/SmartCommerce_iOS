@@ -12,6 +12,7 @@
 		455F8480299E18B200A22DA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455F847F299E18B200A22DA0 /* SceneDelegate.swift */; };
 		455F8487299E18B200A22DA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 455F8486299E18B200A22DA0 /* Assets.xcassets */; };
 		455F848A299E18B200A22DA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455F8488299E18B200A22DA0 /* LaunchScreen.storyboard */; };
+		F575F6A6454AE2B736E8307A /* Pods_SmartCommerce_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6255257686C9225CC2843B16 /* Pods_SmartCommerce_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		455F8486299E18B200A22DA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		455F8489299E18B200A22DA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		455F848B299E18B200A22DA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6255257686C9225CC2843B16 /* Pods_SmartCommerce_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartCommerce_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A50E003D538105D621771D27 /* Pods-SmartCommerce_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartCommerce_iOS.debug.xcconfig"; path = "Target Support Files/Pods-SmartCommerce_iOS/Pods-SmartCommerce_iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		DC20F36DA07D0B5E2AD76213 /* Pods-SmartCommerce_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartCommerce_iOS.release.xcconfig"; path = "Target Support Files/Pods-SmartCommerce_iOS/Pods-SmartCommerce_iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F575F6A6454AE2B736E8307A /* Pods_SmartCommerce_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +61,8 @@
 			children = (
 				455F847C299E18B200A22DA0 /* SmartCommerce_iOS */,
 				455F847B299E18B200A22DA0 /* Products */,
+				DA6DD054ED3BBD35B0C1FEBC /* Pods */,
+				4767DC4B51032AE528E2432D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +87,24 @@
 			path = SmartCommerce_iOS;
 			sourceTree = "<group>";
 		};
+		4767DC4B51032AE528E2432D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6255257686C9225CC2843B16 /* Pods_SmartCommerce_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA6DD054ED3BBD35B0C1FEBC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A50E003D538105D621771D27 /* Pods-SmartCommerce_iOS.debug.xcconfig */,
+				DC20F36DA07D0B5E2AD76213 /* Pods-SmartCommerce_iOS.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -87,9 +112,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 455F848E299E18B200A22DA0 /* Build configuration list for PBXNativeTarget "SmartCommerce_iOS" */;
 			buildPhases = (
+				9FADF95071774E17F8F40CE7 /* [CP] Check Pods Manifest.lock */,
 				455F8476299E18B200A22DA0 /* Sources */,
 				455F8477299E18B200A22DA0 /* Frameworks */,
 				455F8478299E18B200A22DA0 /* Resources */,
+				B2B72DB7B81AD0B04E3B61A1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -144,6 +171,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9FADF95071774E17F8F40CE7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SmartCommerce_iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2B72DB7B81AD0B04E3B61A1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SmartCommerce_iOS/Pods-SmartCommerce_iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SmartCommerce_iOS/Pods-SmartCommerce_iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SmartCommerce_iOS/Pods-SmartCommerce_iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		455F8476299E18B200A22DA0 /* Sources */ = {
@@ -286,6 +355,7 @@
 		};
 		455F848F299E18B200A22DA0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A50E003D538105D621771D27 /* Pods-SmartCommerce_iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -313,6 +383,7 @@
 		};
 		455F8490299E18B200A22DA0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC20F36DA07D0B5E2AD76213 /* Pods-SmartCommerce_iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
