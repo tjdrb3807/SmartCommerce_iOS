@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 import SwiftUI
 import SnapKit
 
 final class HeaderSectionView: UIView {
+    let disposeBag = DisposeBag()
+    
     private lazy var alarmButton: UIButton = {
         let button = UIButton()
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 25.0, weight: .thin)
@@ -25,7 +29,7 @@ final class HeaderSectionView: UIView {
         let label = UILabel()
         label.text = "MUSINSA"
         label.textColor = .black
-        label.font = .systemFont(ofSize: 20.0, weight: .medium)
+        label.font = .systemFont(ofSize: 25.0, weight: .medium)
         
         return label
     }()
@@ -60,6 +64,10 @@ final class HeaderSectionView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func bind(_ viewModel: HeaderSectionViewModel) {
+        
     }
     
     private func layout() {

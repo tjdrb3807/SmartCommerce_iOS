@@ -12,13 +12,18 @@ import SnapKit
 final class HomeViewController: UIViewController {
     
     private let headerSectionView = HeaderSectionView()
-    private let menuSectionView = MenuSectionView()
+    private let menuButtonSectionView = MenuButtonSectionView()
+    private let menuSectionView = UIView()
+    
+    private lazy var recommendViewController = RecommendViewController()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    
-        self.settingBind()
         
+        headerSectionView.bind(HeaderSectionViewModel())
+        menuButtonSectionView.bind(MenuButtonSectionViewModel())
+    
+        self.addContentsView()
         self.layout()
     }
     
@@ -30,13 +35,16 @@ final class HomeViewController: UIViewController {
         
     }
     
-    //MARK: SubComponents 구현하고 수정 및 제거
-    private func settingBind() {
-        menuSectionView.bind(MenuSectionViewModel())
+    private func addContentsView() {
+        menuSectionView.translatesAutoresizingMaskIntoConstraints = false
+        addChild(recommendViewController)
+        recommendViewController.view.frame = menuSectionView.frame
+        menuSectionView.addSubview(recommendViewController.view)
+        recommendViewController.didMove(toParent: self)
     }
     
     private func layout() {
-        [headerSectionView, menuSectionView].forEach { view.addSubview($0) }
+        [headerSectionView, menuButtonSectionView, menuSectionView].forEach { view.addSubview($0) }
         
         headerSectionView.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(10.0)
@@ -44,10 +52,15 @@ final class HomeViewController: UIViewController {
         }
         
         // TODO: UI 구현하고 변경
-        menuSectionView.snp.makeConstraints {
-            $0.top.equalTo(headerSectionView.snp.bottom)
+        menuButtonSectionView.snp.makeConstraints {
+            $0.top.equalTo(headerSectionView.snp.bottom).offset(10.0)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(30.0)
+            $0.height.equalTo(35.0)
+        }
+        
+        menuSectionView.snp.makeConstraints {
+            $0.top.equalTo(menuButtonSectionView.snp.bottom)
+            $0.leading.trailing.bottom.equalToSuperview()
         }
     }
 }
