@@ -14,21 +14,24 @@ import RxCocoa
 final class HomeViewController: UIViewController {
     let disposeBag = DisposeBag()
     
+    private var contentViewList: [UIViewController] = []
+    private var selectedMenuIndex: Int = 0
+    
     private let headerSectionView = HeaderSectionView()
     private let menuButtonSectionView = MenuButtonSectionView()
     
-    private lazy var testLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Test"
-        label.textColor = .black
-        label.font = .systemFont(ofSize: 30.0, weight: .bold)
-        
-        return label
-    }()
+    private let containerView = UIView()
+    
+    private lazy var recommendContentView = RecommendViewController()
+    private lazy var rankingContentView = RankingViewController()
+    private lazy var styleContentView = StyleViewController()
+    private lazy var saleContentView = SaleViewContorller()
+    private lazy var eventContentView = EventViewController()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
+        self.attribute()
         self.layout()
     }
     
@@ -39,13 +42,19 @@ final class HomeViewController: UIViewController {
     func bind(_ viewModel: HomeViewModel) {
         viewModel.selectedMenu
             .drive(onNext: { [weak self] in
-                self?.testLabel.text = "\($0)"
+                self?.removeContentView(self!.selectedMenuIndex)
+                self?.addContentView($0)
+                self?.selectedMenuIndex = $0
                 self?.menuButtonSectionView.bind(viewModel.menuButtonSectionViewModel)
             }).disposed(by: disposeBag)
     }
     
+    private func attribute() {
+        [recommendContentView, rankingContentView, styleContentView, saleContentView, eventContentView].forEach { contentViewList.append($0) }
+    }
+    
     private func layout() {
-        [headerSectionView, menuButtonSectionView, testLabel].forEach { view.addSubview($0) }
+        [headerSectionView, menuButtonSectionView, containerView].forEach { view.addSubview($0) }
         
         headerSectionView.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(10.0)
@@ -59,9 +68,30 @@ final class HomeViewController: UIViewController {
             $0.height.equalTo(35.0)
         }
         
-        testLabel.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
+        containerView.snp.makeConstraints {
+            $0.top.equalTo(menuButtonSectionView.snp.bottom)
+            $0.leading.trailing.bottom.equalToSuperview()
         }
+    }
+    
+    private func addContentView(_ index: Int) {
+        let contentView = contentViewList[index]
+        
+        addChild(contentView)
+        contentView.view.frame = containerView.frame
+        containerView.addSubview(contentView.view)
+        contentView.view.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        contentView.didMove(toParent: self)
+    }
+    
+    private func removeContentView(_ index: Int) {
+        let contentView = contentViewList[index]
+        
+        contentView.willMove(toParent: nil)
+        contentView.removeFromParent()
+        contentView.view.removeFromSuperview()
     }
 }
 

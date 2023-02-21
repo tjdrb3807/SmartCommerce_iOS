@@ -18,6 +18,10 @@ final class SaleViewContorller: UIViewController {
         return label
     }()
     
+    override func viewDidLoad() {
+        view.backgroundColor = .green
+    }
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         

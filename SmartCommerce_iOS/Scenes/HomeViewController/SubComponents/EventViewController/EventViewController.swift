@@ -18,6 +18,10 @@ final class EventViewController: UIViewController {
         return label
     }()
     
+    override func viewDidLoad() {
+        view.backgroundColor = .blue
+    }
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         

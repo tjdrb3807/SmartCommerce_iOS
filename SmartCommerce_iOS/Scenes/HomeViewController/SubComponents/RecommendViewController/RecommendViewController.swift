@@ -18,6 +18,10 @@ final class RecommendViewController: UIViewController {
         return label
     }()
     
+    override func viewDidLoad() {
+        view.backgroundColor = .red
+    }
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
