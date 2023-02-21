@@ -14,13 +14,16 @@ struct MenuButtonSectionViewModel {
     
     // ViewModel -> View
     let menuDataList: Driver<[MenuData]>
-    let selectedMenu: Driver<Int>
+    let selectedMenuIndex: Driver<Int>
     
     // View -> ViewModel
     let menuButtonTapped = PublishRelay<Int>()
     
+    // ViewModel -> ParentViewModel
+    let selectedMenu = PublishSubject<MenuData>()
     
     init() {
+        
         let menuDataList = [
             MenuData(id: 0, title: "추천"),
             MenuData(id: 1, title: "랭킹"),
@@ -29,10 +32,18 @@ struct MenuButtonSectionViewModel {
             MenuData(id: 4, title: "이벤트")
         ]
         
+        let selectedMenuIndex = menuButtonTapped
+            .startWith(0)
+        
         self.menuDataList = Driver.just(menuDataList)
         
-        self.selectedMenu = menuButtonTapped
+        self.selectedMenuIndex = selectedMenuIndex
             .asDriver(onErrorJustReturn: 0)
-            .startWith(0)
+        
+        self.menuButtonTapped
+            .map { menuDataList[$0] }
+            .bind(to: selectedMenu)
+            .disposed(by: disposeBag)
     }
+    
 }
