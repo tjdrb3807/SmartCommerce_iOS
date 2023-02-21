@@ -22,6 +22,7 @@ final class MenuButtonSectionView: UIView {
     private lazy var styleMenuButton = UIButton()
     private lazy var saleMenuButton = UIButton()
     private lazy var eventMenuButton = UIButton()
+    private lazy var selectedBar = UIView()
     private lazy var separatorView = UIView()
     
     override init(frame: CGRect) {
@@ -38,28 +39,18 @@ final class MenuButtonSectionView: UIView {
     func bind(_ viewModel: MenuButtonSectionViewModel) {
         viewModel.menuDataList
             .drive(onNext: { [weak self] menuDataList in
-                guard let self = self else { return }
-                for data in menuDataList {
-                    self.menuButtonList[data.id].setButton(data)
-                }
+                menuDataList.forEach { self?.menuButtonList[$0.id].setButton($0) }
             }).disposed(by: disposeBag)
         
-        viewModel.selectedMenu
-            .drive(onNext: { index in
-                for button in self.menuButtonList {
-                    if button.tag == index {
-                        button.selectedButton(true)
-                    } else {
-                        button.selectedButton(false)
-                    }
-                }
+        viewModel.selectedMenuIndex
+            .drive(onNext: { [weak self] in
+                self?.isSelect($0)
             }).disposed(by: disposeBag)
         
         menuButtonList.forEach { button in
             button.rx.tap
-                .map { _ -> Int in
-                    button.tag
-                }.bind(to: viewModel.menuButtonTapped)
+                .map { button.tag }
+                .bind(to: viewModel.menuButtonTapped)
                 .disposed(by: disposeBag)
         }
     }
@@ -68,11 +59,14 @@ final class MenuButtonSectionView: UIView {
         horizontalStackView.axis = .horizontal
         horizontalStackView.distribution = .fillProportionally
         
+        selectedBar.backgroundColor = .black
+    
         separatorView.backgroundColor = .separator
     }
+
     
     private func layout() {
-        [horizontalStackView, separatorView].forEach { addSubview($0) }
+        [horizontalStackView, selectedBar, separatorView].forEach { addSubview($0) }
         
         horizontalStackView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
@@ -91,22 +85,24 @@ final class MenuButtonSectionView: UIView {
             menuButtonList.append($0)
         }
     }
+    
+    private func isSelect(_ index: Int) {
+        menuButtonList.forEach {
+            if $0.tag == index {
+                $0.setTitleColor(.black, for: .normal)
+                $0.titleLabel?.font = .systemFont(ofSize: 15.0, weight: .bold)
+            } else {
+                $0.setTitleColor(.gray, for: .normal)
+                $0.titleLabel?.font = .systemFont(ofSize: 15.0, weight: .light)
+            }
+        }
+    }
 }
 
 extension UIButton {
     func setButton(_ data: MenuData) {
         self.setTitle(data.title, for: .normal)
         self.tag = data.id
-    }
-    
-    func selectedButton(_ isChecked: Bool) {
-        if isChecked {
-            self.setTitleColor(.black, for: .normal)
-            self.titleLabel?.font = .systemFont(ofSize: 15.0, weight: .bold)
-        } else {
-            self.setTitleColor(.gray, for: .normal)
-            self.titleLabel?.font = .systemFont(ofSize: 15.0, weight: .light)
-        }
     }
 }
 
