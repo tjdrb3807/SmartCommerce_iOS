@@ -8,22 +8,27 @@
 import UIKit
 import SwiftUI
 import SnapKit
+import RxSwift
+import RxCocoa
 
 final class HomeViewController: UIViewController {
+    let disposeBag = DisposeBag()
     
     private let headerSectionView = HeaderSectionView()
     private let menuButtonSectionView = MenuButtonSectionView()
-    private let menuSectionView = UIView()
     
-    private lazy var recommendViewController = RecommendViewController()
+    private lazy var testLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Test"
+        label.textColor = .black
+        label.font = .systemFont(ofSize: 30.0, weight: .bold)
+        
+        return label
+    }()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
-        headerSectionView.bind(HeaderSectionViewModel())
-        menuButtonSectionView.bind(MenuButtonSectionViewModel())
-    
-        self.addContentsView()
         self.layout()
     }
     
@@ -32,19 +37,15 @@ final class HomeViewController: UIViewController {
     }
     
     func bind(_ viewModel: HomeViewModel) {
-        
-    }
-    
-    private func addContentsView() {
-        menuSectionView.translatesAutoresizingMaskIntoConstraints = false
-        addChild(recommendViewController)
-        recommendViewController.view.frame = menuSectionView.frame
-        menuSectionView.addSubview(recommendViewController.view)
-        recommendViewController.didMove(toParent: self)
+        viewModel.selectedMenu
+            .drive(onNext: { [weak self] in
+                self?.testLabel.text = "\($0)"
+                self?.menuButtonSectionView.bind(viewModel.menuButtonSectionViewModel)
+            }).disposed(by: disposeBag)
     }
     
     private func layout() {
-        [headerSectionView, menuButtonSectionView, menuSectionView].forEach { view.addSubview($0) }
+        [headerSectionView, menuButtonSectionView, testLabel].forEach { view.addSubview($0) }
         
         headerSectionView.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(10.0)
@@ -58,9 +59,8 @@ final class HomeViewController: UIViewController {
             $0.height.equalTo(35.0)
         }
         
-        menuSectionView.snp.makeConstraints {
-            $0.top.equalTo(menuButtonSectionView.snp.bottom)
-            $0.leading.trailing.bottom.equalToSuperview()
+        testLabel.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
         }
     }
 }
