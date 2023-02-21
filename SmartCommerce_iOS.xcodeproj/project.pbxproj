@@ -19,6 +19,10 @@
 		45830FC3299F66F70054B30A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45830FC2299F66F70054B30A /* HomeViewModel.swift */; };
 		45830FC5299F675C0054B30A /* HeaderSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45830FC4299F675C0054B30A /* HeaderSectionViewModel.swift */; };
 		45830FDB29A1FA800054B30A /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45830FDA29A1FA7F0054B30A /* RecommendViewController.swift */; };
+		45830FE429A224980054B30A /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45830FE329A224980054B30A /* RankingViewController.swift */; };
+		45830FE629A224A30054B30A /* StyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45830FE529A224A30054B30A /* StyleViewController.swift */; };
+		45830FE829A224AB0054B30A /* SaleViewContorller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45830FE729A224AB0054B30A /* SaleViewContorller.swift */; };
+		45830FEA29A224B30054B30A /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45830FE929A224B30054B30A /* EventViewController.swift */; };
 		F575F6A6454AE2B736E8307A /* Pods_SmartCommerce_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6255257686C9225CC2843B16 /* Pods_SmartCommerce_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +41,10 @@
 		45830FC2299F66F70054B30A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		45830FC4299F675C0054B30A /* HeaderSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSectionViewModel.swift; sourceTree = "<group>"; };
 		45830FDA29A1FA7F0054B30A /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
+		45830FE329A224980054B30A /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
+		45830FE529A224A30054B30A /* StyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleViewController.swift; sourceTree = "<group>"; };
+		45830FE729A224AB0054B30A /* SaleViewContorller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleViewContorller.swift; sourceTree = "<group>"; };
+		45830FE929A224B30054B30A /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		6255257686C9225CC2843B16 /* Pods_SmartCommerce_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartCommerce_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A50E003D538105D621771D27 /* Pods-SmartCommerce_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartCommerce_iOS.debug.xcconfig"; path = "Target Support Files/Pods-SmartCommerce_iOS/Pods-SmartCommerce_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		DC20F36DA07D0B5E2AD76213 /* Pods-SmartCommerce_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartCommerce_iOS.release.xcconfig"; path = "Target Support Files/Pods-SmartCommerce_iOS/Pods-SmartCommerce_iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -110,6 +118,10 @@
 				45830F82299E28600054B30A /* HeaderSectionView */,
 				45830F87299E28AE0054B30A /* MenuButtonSectionView */,
 				45830FDD29A1FCA30054B30A /* RecommendViewController */,
+				45830FEB29A224B70054B30A /* RankingViewController */,
+				45830FEC29A224C20054B30A /* StyleViewController */,
+				45830FED29A224CC0054B30A /* SaleViewController */,
+				45830FEE29A224D50054B30A /* EventViewController */,
 			);
 			path = SubComponents;
 			sourceTree = "<group>";
@@ -146,6 +158,38 @@
 				45830FDA29A1FA7F0054B30A /* RecommendViewController.swift */,
 			);
 			path = RecommendViewController;
+			sourceTree = "<group>";
+		};
+		45830FEB29A224B70054B30A /* RankingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				45830FE329A224980054B30A /* RankingViewController.swift */,
+			);
+			path = RankingViewController;
+			sourceTree = "<group>";
+		};
+		45830FEC29A224C20054B30A /* StyleViewController */ = {
+			isa = PBXGroup;
+			children = (
+				45830FE529A224A30054B30A /* StyleViewController.swift */,
+			);
+			path = StyleViewController;
+			sourceTree = "<group>";
+		};
+		45830FED29A224CC0054B30A /* SaleViewController */ = {
+			isa = PBXGroup;
+			children = (
+				45830FE729A224AB0054B30A /* SaleViewContorller.swift */,
+			);
+			path = SaleViewController;
+			sourceTree = "<group>";
+		};
+		45830FEE29A224D50054B30A /* EventViewController */ = {
+			isa = PBXGroup;
+			children = (
+				45830FE929A224B30054B30A /* EventViewController.swift */,
+			);
+			path = EventViewController;
 			sourceTree = "<group>";
 		};
 		4767DC4B51032AE528E2432D /* Frameworks */ = {
@@ -279,16 +323,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45830FE629A224A30054B30A /* StyleViewController.swift in Sources */,
 				45830F8D299E29DD0054B30A /* MenuData.swift in Sources */,
+				45830FE829A224AB0054B30A /* SaleViewContorller.swift in Sources */,
 				45830F86299E28A80054B30A /* MenuButtonSectionView.swift in Sources */,
 				45830FC5299F675C0054B30A /* HeaderSectionViewModel.swift in Sources */,
 				45830FC3299F66F70054B30A /* HomeViewModel.swift in Sources */,
 				45830FDB29A1FA800054B30A /* RecommendViewController.swift in Sources */,
 				455F847E299E18B200A22DA0 /* AppDelegate.swift in Sources */,
 				453FB749299E196B0074D441 /* HomeViewConcoller.swift in Sources */,
+				45830FEA29A224B30054B30A /* EventViewController.swift in Sources */,
 				455F8480299E18B200A22DA0 /* SceneDelegate.swift in Sources */,
 				45830F80299E1C6D0054B30A /* HeaderSectionView.swift in Sources */,
 				45830F89299E28EC0054B30A /* MenuButtonSectionViewModel.swift in Sources */,
+				45830FE429A224980054B30A /* RankingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
