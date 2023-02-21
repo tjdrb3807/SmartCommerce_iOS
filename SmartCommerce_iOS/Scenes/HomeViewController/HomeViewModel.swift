@@ -9,10 +9,20 @@ import RxSwift
 import RxCocoa
 
 struct HomeViewModel {
-    let headerSectionViewModel = HeaderSectionViewModel()
-    let menuButtonSectionView = MenuButtonSectionView()
+    let disposeBag = DisposeBag()
+    
+    // SubComponents
+    let menuButtonSectionViewModel = MenuButtonSectionViewModel()
+    
+    // ViewModel -> View
+    let selectedMenu: Driver<Int>
     
     init() {
+        let selectedMenuIndex = menuButtonSectionViewModel.selectedMenu
+            .map { $0.id }
+            .startWith(0)
         
+        self.selectedMenu = selectedMenuIndex
+            .asDriver(onErrorJustReturn: 0)
     }
 }
