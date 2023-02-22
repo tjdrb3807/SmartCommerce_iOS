@@ -33,7 +33,6 @@ final class RecommendViewController: UIViewController {
     private func attribute() {
         verticalStackView.axis = .vertical
         verticalStackView.distribution = .equalSpacing
-        verticalStackView.spacing = 0.0
     }
     
     private func layout() {
@@ -58,7 +57,7 @@ final class RecommendViewController: UIViewController {
         bannerContainerView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(UIScreen.main.bounds.height / 2)
+            $0.height.equalTo(UIScreen.main.bounds.height / 2.3)
         }
         
         bannerContainerView.addSubview(bannerPageControl)
@@ -66,15 +65,11 @@ final class RecommendViewController: UIViewController {
         bannerPageControl.snp.makeConstraints {
             $0.trailing.equalToSuperview()
             $0.bottom.equalTo(bannerContainerView.snp.bottom)
-            
         }
-        
+    
         categoryCollectionView.snp.makeConstraints {
             $0.top.equalTo(bannerContainerView.snp.bottom).offset(30.0)
-            $0.leading.equalToSuperview().offset(10.0)
-            $0.trailing.equalToSuperview().offset(-10.0)
-            $0.height.equalTo(170)
-            
+            $0.height.equalTo(UIScreen.main.bounds.height / 4)
         }
     }
     
