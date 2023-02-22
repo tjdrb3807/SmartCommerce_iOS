@@ -12,11 +12,8 @@ import SwiftUI
 final class CategoryCollectionViewCell: UICollectionViewCell {
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        let size: CGFloat = UIScreen.main.bounds.width / 5 - 30.0
         imageView.backgroundColor = .lightGray
-        imageView.layer.cornerRadius = 10.0
-        imageView.bounds.size.width = size
-        imageView.bounds.size.height = size
+        imageView.layer.cornerRadius = 20.0
         
         return imageView
     }()
@@ -25,6 +22,7 @@ final class CategoryCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "골프"
         label.textAlignment = .center
+        label.font = .systemFont(ofSize: 15.0)
         
         return label
     }()
