@@ -13,14 +13,10 @@ final class RecommendViewController: UIViewController {
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     private let verticalStackView = UIStackView()
-    
     private let bannerContainerView = UIView()
-    private let bannerPageViewController = BannerPageViewController(transitionStyle: .scroll,
-                                                                    navigationOrientation: .horizontal)
-    
+    private let bannerPageViewController = BannerPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
     private let bannerPageControl = BannerPageControl()
-    
-    private let spacingView = UIView()
+    private let categoryCollectionView = CategoryCollectionView()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -57,7 +53,7 @@ final class RecommendViewController: UIViewController {
             $0.edges.equalToSuperview()
         }
         
-        [bannerContainerView, spacingView].forEach { verticalStackView.addArrangedSubview($0) }
+        [bannerContainerView, categoryCollectionView].forEach { verticalStackView.addArrangedSubview($0) }
         
         bannerContainerView.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -73,11 +69,12 @@ final class RecommendViewController: UIViewController {
             
         }
         
-        spacingView.backgroundColor = .lightGray
-        spacingView.snp.makeConstraints {
-            $0.top.equalTo(bannerContainerView.snp.bottom)
-            $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(400.0)
+        categoryCollectionView.snp.makeConstraints {
+            $0.top.equalTo(bannerContainerView.snp.bottom).offset(30.0)
+            $0.leading.equalToSuperview().offset(10.0)
+            $0.trailing.equalToSuperview().offset(-10.0)
+            $0.height.equalTo(170)
+            
         }
     }
     
