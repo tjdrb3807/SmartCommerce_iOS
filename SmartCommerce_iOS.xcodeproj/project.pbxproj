@@ -108,11 +108,19 @@
 			path = TabBarController;
 			sourceTree = "<group>";
 		};
+		4510A3AF29A603F400B35BEE /* SubComponents */ = {
+			isa = PBXGroup;
+			children = (
+				453FB74B299E19920074D441 /* HomeViewController */,
+			);
+			path = SubComponents;
+			sourceTree = "<group>";
+		};
 		453FB74A299E198B0074D441 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				4510A3AC29A5FA0800B35BEE /* TabBarController */,
-				453FB74B299E19920074D441 /* HomeViewController */,
+				4510A3AF29A603F400B35BEE /* SubComponents */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
