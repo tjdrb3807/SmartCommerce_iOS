@@ -10,14 +10,14 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    let homeViewModel = HomeViewModel()
+    let viewModel = TabBarViewModel()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else { return }
         self.window = UIWindow(windowScene: windowScene)
         
-        let rootViewController = HomeViewController()
-        rootViewController.bind(homeViewModel)
+        let rootViewController = TabBarController()
+        rootViewController.bind(viewModel)
         
         self.window?.rootViewController = rootViewController
         self.window?.backgroundColor = .white

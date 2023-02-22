@@ -13,6 +13,8 @@ final class CategoryCollectionView: UICollectionView {
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         let layout = UICollectionViewFlowLayout()
+        layout.minimumInteritemSpacing = 10.0
+        layout.minimumLineSpacing = 30.0
         
         super.init(frame: frame, collectionViewLayout: layout)
         
@@ -27,7 +29,6 @@ final class CategoryCollectionView: UICollectionView {
     }
     
     private func attribute() {
-
         backgroundColor = .systemBackground
         
         register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: "CategoryCollectionViewCell")
