@@ -14,6 +14,7 @@ final class CategoryViewController: UIViewController {
     private let separator = UIView()
     private let eventCategoryListView = EventCategoryListView()
     private let categoryListView = CategoryListView()
+    private let itemTypeTableView = ItemTypeTableView()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -36,7 +37,7 @@ final class CategoryViewController: UIViewController {
     }
     
     private func layout() {
-        [searchBarView, separator, eventCategoryListView, categoryListView].forEach { view.addSubview($0) }
+        [searchBarView, separator, eventCategoryListView, categoryListView, itemTypeTableView].forEach { view.addSubview($0) }
 
         searchBarView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
@@ -61,6 +62,13 @@ final class CategoryViewController: UIViewController {
             $0.leading.equalToSuperview()
             $0.bottom.equalToSuperview()
             $0.width.equalTo(UIScreen.main.bounds.width / 3.5)
+        }
+        
+        itemTypeTableView.snp.makeConstraints {
+            $0.top.equalTo(categoryListView)
+            $0.leading.equalTo(categoryListView.snp.trailing)
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
     }
 }
