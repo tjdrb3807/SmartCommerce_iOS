@@ -35,14 +35,11 @@
 		45830FEA29A224B30054B30A /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45830FE929A224B30054B30A /* EventViewController.swift */; };
 		45830FF429A4BBD00054B30A /* BannerPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45830FF329A4BBD00054B30A /* BannerPageViewController.swift */; };
 		45830FF629A4D56A0054B30A /* BannerPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45830FF529A4D56A0054B30A /* BannerPageControl.swift */; };
-		45B9459229A739CC0069B5F8 /* ItemTypeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9459129A739CC0069B5F8 /* ItemTypeTableView.swift */; };
-		45B9459529A739E80069B5F8 /* ItemTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9459429A739E80069B5F8 /* ItemTypeTableViewCell.swift */; };
-		45B9459929A73A0F0069B5F8 /* ItemTypeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9459829A73A0F0069B5F8 /* ItemTypeCollectionView.swift */; };
-		45B9459D29A73A320069B5F8 /* ItemTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9459C29A73A320069B5F8 /* ItemTypeCollectionViewCell.swift */; };
 		45B945A129A7474E0069B5F8 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B945A029A7474E0069B5F8 /* CategoryViewModel.swift */; };
 		45B945A329A747E00069B5F8 /* EventCategoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B945A229A747E00069B5F8 /* EventCategoryListViewModel.swift */; };
 		45B945A529A748950069B5F8 /* EventCategoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B945A429A748950069B5F8 /* EventCategoryData.swift */; };
 		45B945A729A7561D0069B5F8 /* CategoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B945A629A7561D0069B5F8 /* CategoryListViewModel.swift */; };
+		45B945A929A75EE40069B5F8 /* ItemTypeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B945A829A75EE40069B5F8 /* ItemTypeData.swift */; };
 		F575F6A6454AE2B736E8307A /* Pods_SmartCommerce_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6255257686C9225CC2843B16 /* Pods_SmartCommerce_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,14 +74,11 @@
 		45830FE929A224B30054B30A /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		45830FF329A4BBD00054B30A /* BannerPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerPageViewController.swift; sourceTree = "<group>"; };
 		45830FF529A4D56A0054B30A /* BannerPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerPageControl.swift; sourceTree = "<group>"; };
-		45B9459129A739CC0069B5F8 /* ItemTypeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTypeTableView.swift; sourceTree = "<group>"; };
-		45B9459429A739E80069B5F8 /* ItemTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTypeTableViewCell.swift; sourceTree = "<group>"; };
-		45B9459829A73A0F0069B5F8 /* ItemTypeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTypeCollectionView.swift; sourceTree = "<group>"; };
-		45B9459C29A73A320069B5F8 /* ItemTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTypeCollectionViewCell.swift; sourceTree = "<group>"; };
 		45B945A029A7474E0069B5F8 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		45B945A229A747E00069B5F8 /* EventCategoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCategoryListViewModel.swift; sourceTree = "<group>"; };
 		45B945A429A748950069B5F8 /* EventCategoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCategoryData.swift; sourceTree = "<group>"; };
 		45B945A629A7561D0069B5F8 /* CategoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewModel.swift; sourceTree = "<group>"; };
+		45B945A829A75EE40069B5F8 /* ItemTypeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTypeData.swift; sourceTree = "<group>"; };
 		6255257686C9225CC2843B16 /* Pods_SmartCommerce_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartCommerce_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A50E003D538105D621771D27 /* Pods-SmartCommerce_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartCommerce_iOS.debug.xcconfig"; path = "Target Support Files/Pods-SmartCommerce_iOS/Pods-SmartCommerce_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		DC20F36DA07D0B5E2AD76213 /* Pods-SmartCommerce_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartCommerce_iOS.release.xcconfig"; path = "Target Support Files/Pods-SmartCommerce_iOS/Pods-SmartCommerce_iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -161,7 +155,6 @@
 				4510A3B629A60B1300B35BEE /* SearchBarViwe */,
 				4510A3B929A60B4500B35BEE /* EventCategoryListView */,
 				4510A3C229A6226100B35BEE /* CategoryListView */,
-				45B9459329A739D10069B5F8 /* ItemTypeTableView */,
 			);
 			path = SubComponents;
 			sourceTree = "<group>";
@@ -323,6 +316,7 @@
 			children = (
 				45830F8C299E29DD0054B30A /* MenuData.swift */,
 				45B945A429A748950069B5F8 /* EventCategoryData.swift */,
+				45B945A829A75EE40069B5F8 /* ItemTypeData.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -375,65 +369,6 @@
 				4510A3A529A5E68B00B35BEE /* CategoryCollectionView */,
 			);
 			path = SubComponents;
-			sourceTree = "<group>";
-		};
-		45B9459329A739D10069B5F8 /* ItemTypeTableView */ = {
-			isa = PBXGroup;
-			children = (
-				45B9459129A739CC0069B5F8 /* ItemTypeTableView.swift */,
-				45B9459629A739EC0069B5F8 /* SubComponents */,
-			);
-			path = ItemTypeTableView;
-			sourceTree = "<group>";
-		};
-		45B9459629A739EC0069B5F8 /* SubComponents */ = {
-			isa = PBXGroup;
-			children = (
-				45B9459729A739F30069B5F8 /* ItemTypeTableViewCell */,
-			);
-			path = SubComponents;
-			sourceTree = "<group>";
-		};
-		45B9459729A739F30069B5F8 /* ItemTypeTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				45B9459429A739E80069B5F8 /* ItemTypeTableViewCell.swift */,
-				45B9459A29A73A130069B5F8 /* SubComponents */,
-			);
-			path = ItemTypeTableViewCell;
-			sourceTree = "<group>";
-		};
-		45B9459A29A73A130069B5F8 /* SubComponents */ = {
-			isa = PBXGroup;
-			children = (
-				45B9459B29A73A210069B5F8 /* ImteTypeCollectionView */,
-			);
-			path = SubComponents;
-			sourceTree = "<group>";
-		};
-		45B9459B29A73A210069B5F8 /* ImteTypeCollectionView */ = {
-			isa = PBXGroup;
-			children = (
-				45B9459829A73A0F0069B5F8 /* ItemTypeCollectionView.swift */,
-				45B9459E29A73A350069B5F8 /* SubComponents */,
-			);
-			path = ImteTypeCollectionView;
-			sourceTree = "<group>";
-		};
-		45B9459E29A73A350069B5F8 /* SubComponents */ = {
-			isa = PBXGroup;
-			children = (
-				45B9459F29A73A3D0069B5F8 /* ItemTypeCollectionViewCell */,
-			);
-			path = SubComponents;
-			sourceTree = "<group>";
-		};
-		45B9459F29A73A3D0069B5F8 /* ItemTypeCollectionViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				45B9459C29A73A320069B5F8 /* ItemTypeCollectionViewCell.swift */,
-			);
-			path = ItemTypeCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		4767DC4B51032AE528E2432D /* Frameworks */ = {
@@ -583,22 +518,19 @@
 				455F847E299E18B200A22DA0 /* AppDelegate.swift in Sources */,
 				4510A3C429A622DE00B35BEE /* CategoryListViewCell.swift in Sources */,
 				45B945A329A747E00069B5F8 /* EventCategoryListViewModel.swift in Sources */,
+				45B945A929A75EE40069B5F8 /* ItemTypeData.swift in Sources */,
 				4510A3B129A6044B00B35BEE /* CategorytViewController.swift in Sources */,
 				453FB749299E196B0074D441 /* HomeViewConcoller.swift in Sources */,
 				4510A3B829A60B3F00B35BEE /* EventCategoryListView.swift in Sources */,
-				45B9459929A73A0F0069B5F8 /* ItemTypeCollectionView.swift in Sources */,
 				4510A3C129A6225D00B35BEE /* CategoryListView.swift in Sources */,
 				45B945A529A748950069B5F8 /* EventCategoryData.swift in Sources */,
 				45830FEA29A224B30054B30A /* EventViewController.swift in Sources */,
 				45830FF429A4BBD00054B30A /* BannerPageViewController.swift in Sources */,
-				45B9459229A739CC0069B5F8 /* ItemTypeTableView.swift in Sources */,
-				45B9459D29A73A320069B5F8 /* ItemTypeCollectionViewCell.swift in Sources */,
 				455F8480299E18B200A22DA0 /* SceneDelegate.swift in Sources */,
 				4510A3B429A604C500B35BEE /* SearchBarView.swift in Sources */,
 				45830F80299E1C6D0054B30A /* HeaderSectionView.swift in Sources */,
 				45B945A129A7474E0069B5F8 /* CategoryViewModel.swift in Sources */,
 				45830F89299E28EC0054B30A /* MenuButtonSectionViewModel.swift in Sources */,
-				45B9459529A739E80069B5F8 /* ItemTypeTableViewCell.swift in Sources */,
 				45B945A729A7561D0069B5F8 /* CategoryListViewModel.swift in Sources */,
 				45830FE429A224980054B30A /* RankingViewController.swift in Sources */,
 			);
