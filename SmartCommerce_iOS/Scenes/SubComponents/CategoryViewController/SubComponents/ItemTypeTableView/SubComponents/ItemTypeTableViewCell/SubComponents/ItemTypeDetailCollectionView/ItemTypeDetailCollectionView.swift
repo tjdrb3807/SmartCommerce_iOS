@@ -50,13 +50,6 @@ extension ItemTypeDetailCollectionView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        if kind == UICollectionView.elementKindSectionHeader {
-//            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ItemTypeDetailCollectionViewHeader", for: indexPath) as? ItemTypeDetailCollectionViewHeader else { return UICollectionReusableView() }
-//
-//            return headerView
-//        } else {
-//            return UICollectionReusableView()
-//        }
         guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ItemTypeDetailCollectionViewHeader", for: indexPath) as? ItemTypeDetailCollectionViewHeader else { return UICollectionReusableView() }
         
         return headerView
