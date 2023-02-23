@@ -13,8 +13,9 @@ final class ItemTypeDetailCollectionView: UIView {
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        
+    
         collectionView.register(ItemTypeDetailCollectionViewCell.self, forCellWithReuseIdentifier: "ItemTypeDetailCollectionViewCell")
+        collectionView.register(ItemTypeDetailCollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ItemTypeDetailCollectionViewHeader")
         collectionView.dataSource = self
         collectionView.delegate = self
         
@@ -47,6 +48,19 @@ extension ItemTypeDetailCollectionView: UICollectionViewDataSource {
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//        if kind == UICollectionView.elementKindSectionHeader {
+//            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ItemTypeDetailCollectionViewHeader", for: indexPath) as? ItemTypeDetailCollectionViewHeader else { return UICollectionReusableView() }
+//
+//            return headerView
+//        } else {
+//            return UICollectionReusableView()
+//        }
+        guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ItemTypeDetailCollectionViewHeader", for: indexPath) as? ItemTypeDetailCollectionViewHeader else { return UICollectionReusableView() }
+        
+        return headerView
+    }
 }
 
 extension ItemTypeDetailCollectionView: UICollectionViewDelegateFlowLayout {
@@ -54,6 +68,10 @@ extension ItemTypeDetailCollectionView: UICollectionViewDelegateFlowLayout {
         let size = UIScreen.main.bounds.width / 6.0
         
         return CGSize(width: size, height: size + 20.0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        CGSize(width: 100.0 , height: 30.0)
     }
 }
 

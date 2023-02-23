@@ -18,6 +18,7 @@ final class ItemTypeTableView: UIView {
         tableView.rowHeight = 250.0
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
+        tableView.showsVerticalScrollIndicator = false
         
         return tableView
     }()
@@ -40,7 +41,7 @@ final class ItemTypeTableView: UIView {
 
 extension ItemTypeTableView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        13
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
