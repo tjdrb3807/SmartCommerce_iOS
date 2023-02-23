@@ -11,6 +11,7 @@ import RxCocoa
 struct TabBarViewModel {
     // Sub Components
     let homeViewModel = HomeViewModel()
+    let categoryViewModel = CategoryViewModel()
     
     init() {
         
