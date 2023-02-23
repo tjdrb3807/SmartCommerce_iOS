@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 final class TabBarController: UITabBarController {
-    private let categoryViewController = UIViewController()
+    private let categoryViewController = CategoryViewController()
     private let homeViewController = HomeViewController()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -23,6 +23,7 @@ final class TabBarController: UITabBarController {
     }
     
     func bind(_ viewModel: TabBarViewModel) {
+        self.categoryViewController.bind(CategoryViewModel())
         self.homeViewController.bind(HomeViewModel())
     }
     
