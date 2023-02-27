@@ -7,14 +7,17 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 final class TabBarController: UITabBarController {
+    let disposeBag = DisposeBag()
+    
     private let categoryViewController = CategoryViewController()
     private let homeViewController = HomeViewController()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        
         self.attribute()
     }
     
@@ -23,8 +26,8 @@ final class TabBarController: UITabBarController {
     }
     
     func bind(_ viewModel: TabBarViewModel) {
-        self.categoryViewController.bind(CategoryViewModel())
         self.homeViewController.bind(HomeViewModel())
+        self.categoryViewController.bind(CategoryViewModel())
     }
     
     private func attribute() {
@@ -34,7 +37,7 @@ final class TabBarController: UITabBarController {
         tabBar.tintColor = .white
         
         let categoryTabBarItem = UITabBarItem(title: "카테고리", image: UIImage(systemName: "list.bullet"), tag: 0)
-        let homeTabBarItem = UITabBarItem(title: "홈", image: UIImage(systemName: "house"), tag: 0)
+        let homeTabBarItem = UITabBarItem(title: "홈", image: UIImage(systemName: "house"), tag: 1)
         
         categoryViewController.tabBarItem = categoryTabBarItem
         homeViewController.tabBarItem = homeTabBarItem

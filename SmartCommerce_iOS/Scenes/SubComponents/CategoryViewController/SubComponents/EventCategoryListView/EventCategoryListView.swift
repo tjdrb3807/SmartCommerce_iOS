@@ -38,16 +38,8 @@ final class EventCategoryListView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func bind(_ viewModel: EventCategoryListViewModel) {
-        viewModel.eventCategories
-            .asDriver(onErrorJustReturn: [])
-            .drive(collectionView.rx.items) { collectionView, row, data in
-                let index = IndexPath(row: row, section: 0)
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventCategoryListViewCell", for: index) as! EventCategoryListViewCell
-                cell.setData(data)
-                
-                return cell
-            }.disposed(by: disposeBag)
+    func bind(_ viewModel: EventCategoryListViewModel) {        
+        
     }
     
     private func layout() {

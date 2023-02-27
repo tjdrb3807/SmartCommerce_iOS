@@ -48,7 +48,7 @@ final class EventCategoryListViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setData(_ data: EventCategoryData) {
+    func setData(_ data: EventCategoryCellData) {
         thumbnailImageView.kf.setImage(with: data.thumbnailImageURL)
         titleLabel.text = data.title
     }

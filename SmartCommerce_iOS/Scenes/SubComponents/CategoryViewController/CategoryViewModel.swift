@@ -9,8 +9,15 @@ import RxSwift
 import RxCocoa
 
 struct CategoryViewModel {
+    let disposeBag = DisposeBag()
+    
     // SubComponents
     let eventCategoryListViewModel = EventCategoryListViewModel()
     let categoryListViewModel = CategoryListViewModel()
+
     
+    init(model: CategoryModel = CategoryModel()) {
+        
+            
+    }
 }
