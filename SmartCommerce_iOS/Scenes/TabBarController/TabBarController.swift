@@ -26,8 +26,8 @@ final class TabBarController: UITabBarController {
     }
     
     func bind(_ viewModel: TabBarViewModel) {
-        self.homeViewController.bind(HomeViewModel())
-        self.categoryViewController.bind(CategoryViewModel())
+        self.categoryViewController.bind(viewModel.categoryViewModel)
+        self.homeViewController.bind(viewModel.homeViewModel)
     }
     
     private func attribute() {

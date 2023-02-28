@@ -40,6 +40,8 @@ final class HomeViewController: UIViewController {
     }
     
     func bind(_ viewModel: HomeViewModel) {
+        recommendContentView.bind(RecommendViewModel())
+        
         viewModel.selectedMenu
             .drive(onNext: { [weak self] in
                 self?.removeContentView(self!.selectedMenuIndex)

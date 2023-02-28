@@ -14,7 +14,11 @@ struct EventCategoryListViewModel {
     // ParentViewModel -> ViewModel
     let eventCategoryCellData = PublishSubject<[EventCategoryCellData]>()
     
+    // ViewModel -> View
+    let cellData: Driver<[EventCategoryCellData]>
+    
     init() {
-        
+        self.cellData = eventCategoryCellData
+            .asDriver(onErrorJustReturn: [])
     }
 }

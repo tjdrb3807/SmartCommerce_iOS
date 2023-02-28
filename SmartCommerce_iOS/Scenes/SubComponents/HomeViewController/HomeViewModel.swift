@@ -14,11 +14,10 @@ struct HomeViewModel {
     // SubComponents
     let menuButtonSectionViewModel = MenuButtonSectionViewModel()
     
-    
     // ViewModel -> View
     let selectedMenu: Driver<Int>
     
-    init() {
+    init(model: HomeModel = HomeModel()) {
         let selectedMenuIndex = menuButtonSectionViewModel.selectedMenu
             .map { $0.id }
             .startWith(0)

@@ -8,8 +8,12 @@
 import UIKit
 import SnapKit
 import SwiftUI
+import RxSwift
+import RxCocoa
 
 final class CategoryViewController: UIViewController {
+    let disposeBag = DisposeBag()
+    
     private let searchBarView = SearchBarView()
     private let separator = UIView()
     private let eventCategoryListView = EventCategoryListView()
@@ -28,8 +32,12 @@ final class CategoryViewController: UIViewController {
     }
     
     func bind(_ viewModel: CategoryViewModel) {
-        self.eventCategoryListView.bind(EventCategoryListViewModel())
-        self.categoryListView.bind(CategoryListViewModel())
+        self.eventCategoryListView.bind(viewModel.eventCategoryListViewModel)
+        self.categoryListView.bind(viewModel.categoryListViewModel)
+        
+        self.rx.viewWillAppear
+            .bind(to: viewModel.categoryViewWillAppear)
+            .disposed(by: disposeBag)
     }
     
     private func attribute() {
@@ -70,6 +78,14 @@ final class CategoryViewController: UIViewController {
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
+    }
+}
+
+extension Reactive where Base: UIViewController {
+    var viewWillAppear: ControlEvent<Void> {
+        let source = self.methodInvoked(#selector(Base.viewWillAppear)).map { _ in }
+        
+        return ControlEvent(events: source)
     }
 }
 

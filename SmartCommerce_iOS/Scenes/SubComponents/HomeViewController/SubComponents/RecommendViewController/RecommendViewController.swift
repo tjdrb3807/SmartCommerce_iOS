@@ -8,8 +8,12 @@
 import UIKit
 import SnapKit
 import SwiftUI
+import RxSwift
+import RxCocoa
 
 final class RecommendViewController: UIViewController {
+    let disposeBag = DisposeBag()
+    
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     private let verticalStackView = UIStackView()
@@ -28,6 +32,9 @@ final class RecommendViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func bind(_ viewModel: RecommendViewModel) {
     }
     
     private func attribute() {

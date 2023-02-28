@@ -44,14 +44,15 @@ final class EventCategoryListViewCell: UICollectionViewCell {
         self.layout()
     }
     
+    func setData(_ data: EventCategoryCellData) {
+        self.thumbnailImageView.kf.setImage(with: data.thumbnailURL)
+        self.titleLabel.text = data.title
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setData(_ data: EventCategoryCellData) {
-        thumbnailImageView.kf.setImage(with: data.thumbnailImageURL)
-        titleLabel.text = data.title
-    }
     
     private func layout() {
         addSubview(verticalStackView)

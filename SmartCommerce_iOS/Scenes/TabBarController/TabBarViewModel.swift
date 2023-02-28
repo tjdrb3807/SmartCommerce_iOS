@@ -11,11 +11,10 @@ import RxCocoa
 struct TabBarViewModel {
     let disposeBag = DisposeBag()
     
-    // Sub Components
-    let homeViewModel = HomeViewModel()
+    // SubComponents
     let categoryViewModel = CategoryViewModel()
+    let homeViewModel = HomeViewModel()
     
     init() {
-        
     }
 }
