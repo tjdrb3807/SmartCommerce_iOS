@@ -42,6 +42,10 @@
 		459A3EED29ADBFAD00FC0164 /* FetchEventCategoryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459A3EEC29ADBFAD00FC0164 /* FetchEventCategoryAPI.swift */; };
 		459A3EEF29ADC08000FC0164 /* FetchEventCategoryNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459A3EEE29ADC08000FC0164 /* FetchEventCategoryNetwork.swift */; };
 		459A3EF129ADCBED00FC0164 /* RecommendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459A3EF029ADCBED00FC0164 /* RecommendViewModel.swift */; };
+		459A3EF329ADE46E00FC0164 /* CategoryCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459A3EF229ADE46D00FC0164 /* CategoryCellData.swift */; };
+		459A3EF529ADE49700FC0164 /* CategoryCellDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459A3EF429ADE49700FC0164 /* CategoryCellDTO.swift */; };
+		459A3EF729ADE56B00FC0164 /* FetchCategoryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459A3EF629ADE56B00FC0164 /* FetchCategoryAPI.swift */; };
+		459A3EF929ADE57600FC0164 /* FetchCategoryNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459A3EF829ADE57600FC0164 /* FetchCategoryNetwork.swift */; };
 		45B945A129A7474E0069B5F8 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B945A029A7474E0069B5F8 /* CategoryViewModel.swift */; };
 		45B945A329A747E00069B5F8 /* EventCategoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B945A229A747E00069B5F8 /* EventCategoryListViewModel.swift */; };
 		45B945A729A7561D0069B5F8 /* CategoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B945A629A7561D0069B5F8 /* CategoryListViewModel.swift */; };
@@ -92,6 +96,10 @@
 		459A3EEC29ADBFAD00FC0164 /* FetchEventCategoryAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchEventCategoryAPI.swift; sourceTree = "<group>"; };
 		459A3EEE29ADC08000FC0164 /* FetchEventCategoryNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchEventCategoryNetwork.swift; sourceTree = "<group>"; };
 		459A3EF029ADCBED00FC0164 /* RecommendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewModel.swift; sourceTree = "<group>"; };
+		459A3EF229ADE46D00FC0164 /* CategoryCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellData.swift; sourceTree = "<group>"; };
+		459A3EF429ADE49700FC0164 /* CategoryCellDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellDTO.swift; sourceTree = "<group>"; };
+		459A3EF629ADE56B00FC0164 /* FetchCategoryAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCategoryAPI.swift; sourceTree = "<group>"; };
+		459A3EF829ADE57600FC0164 /* FetchCategoryNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCategoryNetwork.swift; sourceTree = "<group>"; };
 		45B945A029A7474E0069B5F8 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		45B945A229A747E00069B5F8 /* EventCategoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCategoryListViewModel.swift; sourceTree = "<group>"; };
 		45B945A629A7561D0069B5F8 /* CategoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewModel.swift; sourceTree = "<group>"; };
@@ -344,6 +352,8 @@
 				45B945A829A75EE40069B5F8 /* ItemTypeData.swift */,
 				459A3EE829ADBE2B00FC0164 /* EventCategoryCellData.swift */,
 				459A3EEA29ADBE6A00FC0164 /* EventCategoryDTO.swift */,
+				459A3EF229ADE46D00FC0164 /* CategoryCellData.swift */,
+				459A3EF429ADE49700FC0164 /* CategoryCellDTO.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -404,6 +414,8 @@
 			children = (
 				459A3EEC29ADBFAD00FC0164 /* FetchEventCategoryAPI.swift */,
 				459A3EEE29ADC08000FC0164 /* FetchEventCategoryNetwork.swift */,
+				459A3EF629ADE56B00FC0164 /* FetchCategoryAPI.swift */,
+				459A3EF829ADE57600FC0164 /* FetchCategoryNetwork.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -620,6 +632,7 @@
 				45830FC3299F66F70054B30A /* HomeViewModel.swift in Sources */,
 				45830FF629A4D56A0054B30A /* BannerPageControl.swift in Sources */,
 				459A3EEB29ADBE6A00FC0164 /* EventCategoryDTO.swift in Sources */,
+				459A3EF529ADE49700FC0164 /* CategoryCellDTO.swift in Sources */,
 				459A3EF129ADCBED00FC0164 /* RecommendViewModel.swift in Sources */,
 				45830FDB29A1FA800054B30A /* RecommendViewController.swift in Sources */,
 				459A3EE529ACA3AB00FC0164 /* CategoryModel.swift in Sources */,
@@ -629,7 +642,9 @@
 				45B945AB29A7651C0069B5F8 /* ItemTypeTableView.swift in Sources */,
 				45B945A329A747E00069B5F8 /* EventCategoryListViewModel.swift in Sources */,
 				45B945A929A75EE40069B5F8 /* ItemTypeData.swift in Sources */,
+				459A3EF929ADE57600FC0164 /* FetchCategoryNetwork.swift in Sources */,
 				4510A3B129A6044B00B35BEE /* CategorytViewController.swift in Sources */,
+				459A3EF729ADE56B00FC0164 /* FetchCategoryAPI.swift in Sources */,
 				453FB749299E196B0074D441 /* HomeViewConcoller.swift in Sources */,
 				4510A3B829A60B3F00B35BEE /* EventCategoryListView.swift in Sources */,
 				4510A3C129A6225D00B35BEE /* CategoryListView.swift in Sources */,
@@ -647,6 +662,7 @@
 				45830F89299E28EC0054B30A /* MenuButtonSectionViewModel.swift in Sources */,
 				45B945A729A7561D0069B5F8 /* CategoryListViewModel.swift in Sources */,
 				45830FE429A224980054B30A /* RankingViewController.swift in Sources */,
+				459A3EF329ADE46E00FC0164 /* CategoryCellData.swift in Sources */,
 				459A3EE729ACB79300FC0164 /* HomeModel.swift in Sources */,
 				45B945BC29A77B1A0069B5F8 /* ItemTypeDetailCollectionViewHeader.swift in Sources */,
 			);

@@ -36,13 +36,14 @@ final class CategoryListView: UIView {
     }
     
     func bind(_ viewModel: CategoryListViewModel) {
-        viewModel.categoryListData
+        viewModel.cellData
             .drive(tableView.rx.items) { tableView, row, data in
                 let index = IndexPath(row: row, section: 0)
-                let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryListViewCell", for: index) as! CategoryListViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryListViewCell") as! CategoryListViewCell
                 cell.setData(data)
-
+                
                 return cell
+                
             }.disposed(by: disposeBag)
     }
     

@@ -9,26 +9,15 @@ import RxSwift
 import RxCocoa
 
 struct CategoryListViewModel {
-    //ViewModel -> View
-    let categoryListData: Driver<[String]>
+    
+    // Parent ViewModel -> ViewModel
+    let categoryCellData = PublishSubject<[CategoryCellData]>()
+    
+    // ViewModel
+    let cellData: Driver<[CategoryCellData]>
     
     init() {
-        let categoryList = [
-            "상의",
-            "아우터",
-            "바지",
-            "원피스/스커트",
-            "신발",
-            "가방",
-            "패션 소품",
-            "언더웨어",
-            "뷰티",
-            "스포츠/레저",
-            "라이프",
-            "키즈",
-            "브랜드"
-        ]
-        
-        self.categoryListData = Driver<[String]>.just(categoryList)
+        self.cellData = categoryCellData
+            .asDriver(onErrorJustReturn: [])
     }
 }

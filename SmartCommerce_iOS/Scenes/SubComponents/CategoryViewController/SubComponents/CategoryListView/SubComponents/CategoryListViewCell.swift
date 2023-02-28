@@ -27,8 +27,8 @@ final class CategoryListViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setData(_ data: String) {
-        titleLable.text = data
+    func setData(_ data: CategoryCellData) {
+        titleLable.text = data.title
     }
     
     private func layout() {

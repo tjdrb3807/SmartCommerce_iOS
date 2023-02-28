@@ -9,7 +9,7 @@ import Foundation
 
 struct FetchEventCategoryAPI {
     static let scheme = "http"
-    static let path = "/localhost:8080/commerce/api/v1/event/category"
+    static let path = "/localhost:8080/commerce/api/v1/category/event"
     
     func fetchEventCategory() -> URLComponents {
         var components = URLComponents()
