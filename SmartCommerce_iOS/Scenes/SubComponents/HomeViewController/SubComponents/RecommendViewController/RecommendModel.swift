@@ -1,13 +1,13 @@
 //
-//  BannerPageModel.swift
+//  RecommendModel.swift
 //  SmartCommerce_iOS
 //
-//  Created by 전성규 on 2023/03/01.
+//  Created by 전성규 on 2023/03/02.
 //
 
 import RxSwift
 
-struct BannerPageModel {
+struct RecommendModel {
     let fetchBannerPageNetwork = FetchBannerPageNetwork()
     
     func fetchBannerPage() -> Single<Result<BannerPageDTO, FetchBannerPageError>> {
@@ -20,11 +20,11 @@ struct BannerPageModel {
         return value
     }
     
-    func getBannserPageList(_ value: BannerPageDTO) -> [BannerPageData] {
+    func getBannerPageList(_ value: BannerPageDTO) -> [BannerPageData] {
         value.bannerList
             .map { banner in
-                let thumbnailURL = URL(string: banner.thumbnailURL ?? "" )
-
+                let thumbnailURL = URL(string: banner.thumbnailURL ?? "")
+                
                 return BannerPageData(content: banner.content, thumbnailURL: thumbnailURL)
             }
     }

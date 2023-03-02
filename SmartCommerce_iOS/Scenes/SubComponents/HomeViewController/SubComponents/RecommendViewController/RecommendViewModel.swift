@@ -9,10 +9,23 @@ import RxSwift
 import RxCocoa
 
 struct RecommendViewModel {
-    // SubComponents
+    // SubComponent
+    let bannerCollectionViewModel = BannerCollectionViewModel()
     
-    init() {
+    // ViewModel -> View
+    let recommendViewWillAppear = PublishRelay<Void>()
+    
+    init(model: RecommendModel = RecommendModel()) {
+        let bannerPageResult = recommendViewWillAppear
+            .withLatestFrom(model.fetchBannerPage())
+            .share()
         
+        let bannerPageValue = bannerPageResult
+            .compactMap(model.getBannerPageValue(_:))
+        
+        let bannerPageData = bannerPageValue
+            .map(model.getBannerPageList(_:))
+            .bind(to: bannerCollectionViewModel.bannerPageData)
     }
 }
 
