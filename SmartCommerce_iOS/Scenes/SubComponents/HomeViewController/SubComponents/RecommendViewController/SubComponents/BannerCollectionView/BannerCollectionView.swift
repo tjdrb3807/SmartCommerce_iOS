@@ -29,8 +29,6 @@ final class BannerCollectionView: UIView {
         collectionView.showsHorizontalScrollIndicator = false
         
         collectionView.register(BannerCollectionViewCell.self, forCellWithReuseIdentifier: "BannerCollectionViewCell")
-        
-        collectionView.dataSource = self
         collectionView.delegate = self
         
         return collectionView
@@ -46,9 +44,14 @@ final class BannerCollectionView: UIView {
     
     func bind(_ viewModel: BannerCollectionViewModel) {
         viewModel.bannerPageDataList
-            .drive(onNext: {
-                self.cardContents = $0
-            }).disposed(by: disposeBag)
+            .drive(collectionView.rx.items) { collectionView, row, data in
+                let index = IndexPath(row: row, section: 0)
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerCollectionViewCell", for: index) as! BannerCollectionViewCell
+                
+                cell.setData(data)
+                
+                return cell
+            }.disposed(by: disposeBag)
     }
     
     required init?(coder: NSCoder) {
@@ -70,22 +73,6 @@ final class BannerCollectionView: UIView {
             $0.top.equalTo(collectionView.snp.bottom).offset(10.0)
             $0.left.right.equalToSuperview()
         }
-    }
-}
-
-extension BannerCollectionView: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        pageControl.numberOfPages = cardContents.count
-        
-        return self.cardContents.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerCollectionViewCell", for: indexPath) as! BannerCollectionViewCell
-        
-        cell.setData(cardContents[indexPath.item])
-        
-        return cell
     }
 }
 
