@@ -14,6 +14,7 @@ struct CategoryViewModel {
     // SubComponents
     let eventCategoryListViewModel = EventCategoryListViewModel()
     let categoryListViewModel = CategoryListViewModel()
+    let itemTypeTableViewModel = ItemTypeTableViewModel()
     
     // View -> ViewModel
     let categoryViewWillAppear = PublishRelay<Void>()

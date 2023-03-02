@@ -33,6 +33,9 @@ final class ItemTypeTableView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func bind(_ voiwModel: ItemTypeTableViewModel) {
+    }
+    
     private func layout() {
         addSubview(tableView)
         tableView.snp.makeConstraints { $0.edges.equalToSuperview() }

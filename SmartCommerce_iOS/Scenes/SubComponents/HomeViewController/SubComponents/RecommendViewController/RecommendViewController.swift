@@ -35,6 +35,7 @@ final class RecommendViewController: UIViewController {
     }
     
     func bind(_ viewModel: RecommendViewModel) {
+
     }
     
     private func attribute() {

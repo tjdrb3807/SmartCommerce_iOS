@@ -8,6 +8,8 @@
 import UIKit
 import SnapKit
 import SwiftUI
+import RxSwift
+import RxCocoa
 
 final class ItemTypeDetailCollectionView: UIView {
     private lazy var collectionView: UICollectionView = {
@@ -27,6 +29,7 @@ final class ItemTypeDetailCollectionView: UIView {
         
         self.layout()
     }
+
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

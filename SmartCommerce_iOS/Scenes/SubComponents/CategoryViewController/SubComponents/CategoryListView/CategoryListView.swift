@@ -39,7 +39,7 @@ final class CategoryListView: UIView {
         viewModel.cellData
             .drive(tableView.rx.items) { tableView, row, data in
                 let index = IndexPath(row: row, section: 0)
-                let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryListViewCell") as! CategoryListViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryListViewCell", for: index) as! CategoryListViewCell
                 cell.setData(data)
                 
                 return cell

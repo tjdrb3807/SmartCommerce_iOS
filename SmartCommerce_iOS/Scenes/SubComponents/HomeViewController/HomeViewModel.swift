@@ -13,6 +13,7 @@ struct HomeViewModel {
     
     // SubComponents
     let menuButtonSectionViewModel = MenuButtonSectionViewModel()
+    let recommendViewModel = RecommendViewModel()
     
     // ViewModel -> View
     let selectedMenu: Driver<Int>

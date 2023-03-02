@@ -40,14 +40,14 @@ final class HomeViewController: UIViewController {
     }
     
     func bind(_ viewModel: HomeViewModel) {
-        recommendContentView.bind(RecommendViewModel())
+        menuButtonSectionView.bind(viewModel.menuButtonSectionViewModel)
+        recommendContentView.bind(viewModel.recommendViewModel)
         
         viewModel.selectedMenu
             .drive(onNext: { [weak self] in
                 self?.removeContentView(self!.selectedMenuIndex)
                 self?.addContentView($0)
                 self?.selectedMenuIndex = $0
-                self?.menuButtonSectionView.bind(viewModel.menuButtonSectionViewModel)
             }).disposed(by: disposeBag)
     }
     

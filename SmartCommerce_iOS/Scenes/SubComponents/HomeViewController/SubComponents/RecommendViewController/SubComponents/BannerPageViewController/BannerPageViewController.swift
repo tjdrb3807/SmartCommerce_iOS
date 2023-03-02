@@ -9,21 +9,25 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxCocoa
+import Kingfisher
 
 final class BannerPageViewController: UIPageViewController {
+    let disposeBag = DisposeBag()
+    
     var completeHandler: ((Int) -> ())?
     
-    let viewList: [UIViewController] = {
-        let testPage01 = UIViewController()
-        let testPage02 = UIViewController()
-        let testPage03 = UIViewController()
-        
-        testPage01.view.backgroundColor = .red
-        testPage02.view.backgroundColor = .orange
-        testPage03.view.backgroundColor = .yellow
-        
-        return [testPage01, testPage02, testPage03]
-    }()
+    var bannerPageDataList: [BannerPageData] = []
+    
+//    var viewList: [UIViewController] = {
+//        let testPage01 = UIViewController()
+//        let testPage02 = UIViewController()
+//        let testPage03 = UIViewController()
+//        let testPage04 = UIViewController()
+//
+//        return [testPage01, testPage02, testPage03, testPage04]
+//    }()
+    
+    var viewList: [UIViewController] = []
     
     var currentPageIndex: Int {
         guard let viewController = viewControllers?.first else { return 0 }
@@ -39,6 +43,37 @@ final class BannerPageViewController: UIPageViewController {
         
         if let firstViewController = viewList.first {
             self.setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
+        }
+    }
+    
+    func bind(_ viewModel: BannerPageViewModel) {
+        self.rx.viewWillAppear
+            .bind(to: viewModel.bannerPageViewWillAppear)
+            .disposed(by: disposeBag)
+        
+        viewModel.bannerPageList
+            .drive(onNext: {
+                self.bannerPageDataList = $0
+                for data in self.bannerPageDataList {
+                    let banner = BannerViewController()
+                    banner.setData(data)
+                    banner.view.backgroundColor = .blue
+                    
+                    self.viewList.append(banner)
+                }
+            }).disposed(by: disposeBag)
+        
+        
+    }
+    
+    private func addBanner() {
+        for data in bannerPageDataList {
+            let banner = BannerViewController()
+            banner.setData(data)
+            banner.view.backgroundColor = .blue
+            
+            viewList.append(banner)
+            print(self.viewList)
         }
     }
 
@@ -69,6 +104,18 @@ extension BannerPageViewController: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if completed {
             completeHandler?(currentPageIndex)
+        }
+    }
+}
+
+extension UIViewController {
+    func setBackgroundImage(_ thumbnailURL: URL) {
+        let imageView = UIImageView()
+        imageView.kf.setImage(with: thumbnailURL)
+        
+        self.view.addSubview(imageView)
+        imageView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
     }
 }
