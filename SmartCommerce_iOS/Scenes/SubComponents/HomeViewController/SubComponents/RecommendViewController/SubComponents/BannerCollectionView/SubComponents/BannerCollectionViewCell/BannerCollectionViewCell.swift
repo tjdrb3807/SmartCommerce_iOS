@@ -16,6 +16,14 @@ final class BannerCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
+    private lazy var contentLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 20.0, weight: .bold)
+        
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -27,13 +35,18 @@ final class BannerCollectionViewCell: UICollectionViewCell {
     }
     
     private func layout() {
-        addSubview(imageView)
+        [imageView, contentLabel].forEach { addSubview($0) }
         
         imageView.snp.makeConstraints { $0.edges.equalToSuperview() }
+        
+        contentLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview()
+        }
     }
     
     func setData(_ data: BannerPageData) {
-        
         imageView.kf.setImage(with: data.thumbnailURL)
+        contentLabel.text = data.content
     }
 }

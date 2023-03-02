@@ -75,7 +75,7 @@ final class MenuButtonSectionView: UIView {
         }
         
         separatorView.snp.makeConstraints {
-            $0.top.equalTo(horizontalStackView.snp.bottom).offset(-1.0)
+            $0.top.equalTo(horizontalStackView.snp.bottom)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(0.5)
         }

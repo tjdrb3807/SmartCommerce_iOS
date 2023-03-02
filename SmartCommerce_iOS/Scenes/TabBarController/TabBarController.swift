@@ -18,6 +18,7 @@ final class TabBarController: UITabBarController {
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
         self.attribute()
     }
     
@@ -32,6 +33,8 @@ final class TabBarController: UITabBarController {
     
     private func attribute() {
         viewControllers = [categoryViewController, homeViewController]
+        
+        selectedIndex = 1
         
         tabBar.backgroundColor = .black
         tabBar.tintColor = .white
