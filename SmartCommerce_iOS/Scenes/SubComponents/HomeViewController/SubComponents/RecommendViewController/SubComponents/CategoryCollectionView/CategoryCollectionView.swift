@@ -8,17 +8,17 @@
 import UIKit
 import SnapKit
 import SwiftUI
+import RxSwift
+import RxCocoa
 
 final class CategoryCollectionView: UICollectionView {
+    let disposeBag = DisposeBag()
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         let layout = UICollectionViewFlowLayout()
-        layout.minimumInteritemSpacing = 10.0
-        layout.minimumLineSpacing = 30.0
         
         super.init(frame: frame, collectionViewLayout: layout)
         
-        dataSource = self
         delegate = self
         
         self.attribute()
@@ -28,22 +28,22 @@ final class CategoryCollectionView: UICollectionView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func bind(_ viewModel: CategoryCollectionViewModel) {
+        viewModel.categoryDataList
+            .drive(self.rx.items) { collectionView, row, data in
+                let index = IndexPath(row: row, section: 0)
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: index) as! CategoryCollectionViewCell
+                
+                cell.setData(data)
+                
+                return cell
+            }.disposed(by: disposeBag)
+    }
+    
     private func attribute() {
         backgroundColor = .systemBackground
         
         register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: "CategoryCollectionViewCell")
-    }
-}
-
-extension CategoryCollectionView: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as? CategoryCollectionViewCell else { return UICollectionViewCell() }
-        
-        return cell
     }
 }
 

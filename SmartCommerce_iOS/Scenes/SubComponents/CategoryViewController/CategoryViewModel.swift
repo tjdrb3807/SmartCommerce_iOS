@@ -20,23 +20,6 @@ struct CategoryViewModel {
     let categoryViewWillAppear = PublishRelay<Void>()
     
     init(model: CategoryModel = CategoryModel()) {
-        
-        // Fetch EventCategory List
-        let eventCategoryResult = categoryViewWillAppear
-            .withLatestFrom(model.fetchEventCategory())
-            .share()
-        
-        let eventCategoryValue = eventCategoryResult
-            .compactMap(model.getEventCategoryValue(_:))
-        
-        let eventCategoryListCellData = eventCategoryValue
-            .map(model.getEventCategoryListCellData(_:))
-        
-        eventCategoryListCellData
-            .bind(to: eventCategoryListViewModel.eventCategoryCellData)
-            .disposed(by: disposeBag)
-        
-        // Fetch Category List
         let categoryResult = categoryViewWillAppear
             .withLatestFrom(model.fetchCategory())
             .share()

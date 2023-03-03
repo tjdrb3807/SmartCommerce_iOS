@@ -33,11 +33,11 @@ final class RecommendViewController: UIViewController {
     
     func bind(_ viewModel: RecommendViewModel) {
         bannerCollectionView.bind(viewModel.bannerCollectionViewModel)
+        categoryCollectionView.bind(viewModel.categoryCollectionViewModel)
         
         self.rx.viewWillAppear
             .bind(to: viewModel.recommendViewWillAppear)
             .disposed(by: disposeBag)
-            
     }
     
     private func attribute() {

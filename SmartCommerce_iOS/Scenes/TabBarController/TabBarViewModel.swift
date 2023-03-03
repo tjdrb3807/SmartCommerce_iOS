@@ -16,5 +16,9 @@ struct TabBarViewModel {
     let homeViewModel = HomeViewModel()
     
     init() {
+        homeViewModel.recommendViewModel.eventCategoryValueList
+            .bind(to: categoryViewModel.eventCategoryListViewModel
+                .eventCategoryCellData)
+            .disposed(by: disposeBag)
     }
 }

@@ -8,6 +8,8 @@
 import UIKit
 import SnapKit
 import SwiftUI
+import RxSwift
+import RxCocoa
 
 final class ItemTypeTableView: UIView {
     private lazy var tableView: UITableView = {
@@ -34,6 +36,7 @@ final class ItemTypeTableView: UIView {
     }
     
     func bind(_ voiwModel: ItemTypeTableViewModel) {
+        
     }
     
     private func layout() {

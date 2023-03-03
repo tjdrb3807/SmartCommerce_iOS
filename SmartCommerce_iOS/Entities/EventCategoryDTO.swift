@@ -14,10 +14,12 @@ struct EventCategoryDTO: Decodable {
 struct EventCategoryDocument: Decodable {
     let title: String?
     let thumbnailURL: String?
+    let thumbanilTextURL: String?
     
     enum CodingKeys: String, CodingKey {
         case title = "event_title"
         case thumbnailURL = "thumbnail_image_url"
+        case thumbanilTextURL = "thumbnail_text_image_url"
     }
     
     init(from decoder: Decoder) throws {
@@ -25,5 +27,6 @@ struct EventCategoryDocument: Decodable {
         
         self.title = try? values.decode(String?.self, forKey: .title)
         self.thumbnailURL = try? values.decode(String?.self, forKey: .thumbnailURL)
+        self.thumbanilTextURL = try? values.decode(String?.self, forKey: .thumbanilTextURL)
     }
 }

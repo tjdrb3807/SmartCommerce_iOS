@@ -7,20 +7,20 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 import SwiftUI
 
 final class CategoryCollectionViewCell: UICollectionViewCell {
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .lightGray
         imageView.layer.cornerRadius = 20.0
+        imageView.clipsToBounds = true
         
         return imageView
     }()
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "골프"
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 15.0)
         
@@ -49,6 +49,11 @@ final class CategoryCollectionViewCell: UICollectionViewCell {
         }
         
         [imageView, titleLabel].forEach { verticalStackView.addArrangedSubview($0) }
+    }
+
+    func setData(_ data: EventCategoryCellData) {
+        imageView.kf.setImage(with: data.thumbnailURL)
+        titleLabel.text = data.title
     }
 }
 

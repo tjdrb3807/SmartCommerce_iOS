@@ -12,13 +12,17 @@ struct EventCategoryListViewModel {
     let disposeBag = DisposeBag()
     
     // ParentViewModel -> ViewModel
-    let eventCategoryCellData = PublishSubject<[EventCategoryCellData]>()
+    let eventCategoryCellData = PublishSubject<EventCategoryDTO>()
     
     // ViewModel -> View
     let cellData: Driver<[EventCategoryCellData]>
     
-    init() {
-        self.cellData = eventCategoryCellData
+    init(model: EventCategoryListModel = EventCategoryListModel()) {
+        
+        let sample = eventCategoryCellData
+            .map(model.getEventCagegoryListCellData(_:))
+        
+        self.cellData = sample
             .asDriver(onErrorJustReturn: [])
     }
 }

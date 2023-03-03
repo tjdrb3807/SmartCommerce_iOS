@@ -34,6 +34,7 @@ final class CategoryViewController: UIViewController {
     func bind(_ viewModel: CategoryViewModel) {
         self.eventCategoryListView.bind(viewModel.eventCategoryListViewModel)
         self.categoryListView.bind(viewModel.categoryListViewModel)
+        self.itemTypeTableView.bind(viewModel.itemTypeTableViewModel)
         
         self.rx.viewWillAppear
             .bind(to: viewModel.categoryViewWillAppear)

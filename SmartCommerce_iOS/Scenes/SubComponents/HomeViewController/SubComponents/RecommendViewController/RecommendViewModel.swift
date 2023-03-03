@@ -9,11 +9,17 @@ import RxSwift
 import RxCocoa
 
 struct RecommendViewModel {
+    let disposeBag = DisposeBag()
+    
     // SubComponent
     let bannerCollectionViewModel = BannerCollectionViewModel()
+    let categoryCollectionViewModel = CategoryCollectionViewModel()
     
     // ViewModel -> View
     let recommendViewWillAppear = PublishRelay<Void>()
+    
+    // ViewModel -> Parent ViewModel
+    let eventCategoryValueList = PublishRelay<EventCategoryDTO>()
     
     init(model: RecommendModel = RecommendModel()) {
         let bannerPageResult = recommendViewWillAppear
@@ -23,9 +29,26 @@ struct RecommendViewModel {
         let bannerPageValue = bannerPageResult
             .compactMap(model.getBannerPageValue(_:))
         
-        let bannerPageData = bannerPageValue
+        bannerPageValue
             .map(model.getBannerPageList(_:))
             .bind(to: bannerCollectionViewModel.bannerPageData)
+            .disposed(by: disposeBag)
+        
+        let evnetCategoryResult = recommendViewWillAppear
+            .withLatestFrom(model.fetchEventCategory())
+            .share()
+        
+        let evnetCategoryValue = evnetCategoryResult
+            .compactMap(model.getEventCategoryValue(_:))
+        
+        evnetCategoryValue
+            .map(model.getEventCategroyList(_:))
+            .bind(to: categoryCollectionViewModel.categoryCellData)
+            .disposed(by: disposeBag)
+        
+        evnetCategoryValue
+            .bind(to: self.eventCategoryValueList)
+            .disposed(by: disposeBag)
     }
 }
 
