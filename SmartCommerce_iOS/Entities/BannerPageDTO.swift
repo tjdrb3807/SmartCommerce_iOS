@@ -29,5 +29,4 @@ struct Banner: Decodable {
         self.content = try? values.decode(String?.self, forKey: .content)
         self.thumbnailURL = try? values.decode(String?.self, forKey: .thumbnailURL)
     }
-    
 }

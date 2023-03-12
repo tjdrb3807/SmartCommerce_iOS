@@ -27,10 +27,10 @@ struct RecommendViewModel {
             .share()
         
         let bannerPageValue = bannerPageResult
-            .compactMap(model.getBannerPageValue(_:))
+            .compactMap(model.getBannerPageValue)
         
         bannerPageValue
-            .map(model.getBannerPageList(_:))
+            .map(model.getBannerPageList)
             .bind(to: bannerCollectionViewModel.bannerPageData)
             .disposed(by: disposeBag)
         

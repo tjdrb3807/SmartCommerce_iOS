@@ -9,6 +9,7 @@ import RxSwift
 
 struct CategoryModel {
     let fetchCategoryNetwork = FetchCategoryNetwork()
+    let fetchItemTypeNetwork = FetchItemTypeNetwork()
     
     func fetchCategory() -> Single<Result<CategoryCellDTO, FetchCategoryError>> {
         fetchCategoryNetwork.fetchCategory()
@@ -25,6 +26,51 @@ struct CategoryModel {
             .map { categoryDocument in
                 return CategoryCellData(title: categoryDocument.title)
             }
+    }
+    
+    func fetchItemType() -> Single<Result<ItemTypeDTO, FetchItemTypeError>> {
+        fetchItemTypeNetwork.fetchItemType()
+    }
+    
+    func getItemTypeValue(_ result: Result<ItemTypeDTO, FetchItemTypeError>) -> ItemTypeDTO? {
+        guard case .success(let value) = result else { return nil }
+        
+        return value
+    }
+    
+    func getItemTypeListCellData(_ value: ItemTypeDTO) -> [ItemTypeData] {
+        value.documents
+            .sorted { $0.categoryID ?? 0 < $1.categoryID ?? 0 }
+            .map { itemTypeDocument in
+                let thumbnailURL = URL(string: itemTypeDocument.itemTypeThumbnailURL ?? "" )
+                
+                return ItemTypeData(itemTypeID: itemTypeDocument.itemTypeID,
+                                    categoryID: itemTypeDocument.categoryID,
+                                    itemTypeTitle: itemTypeDocument.itemTypeTitle,
+                                    itemTypeThumbnailURL: thumbnailURL)
+            }
+    }
+    
+    func getSoryItemTypeDataListByCategory(_ data: [ItemTypeData]) -> [ItemTypeByCategoryData] {
+        var sortDataList: [ItemTypeByCategoryData] = []
+        var categoryId: Int = (data.first?.categoryID)!
+        var index = 0
+        
+        sortDataList.append(ItemTypeByCategoryData(categoryId: categoryId, itemTypeList: [ItemTypeData]()))
+        
+        for itemType in data {
+            if sortDataList[index].categoryId == itemType.categoryID {
+                sortDataList[index].itemTypeList?.append(itemType)
+            } else {
+                categoryId = itemType.categoryID!
+                index += 1
+                
+                sortDataList.append(ItemTypeByCategoryData(categoryId: categoryId, itemTypeList: [ItemTypeData]()))
+                sortDataList[index].itemTypeList?.append(itemType)
+            }
+        }
+        
+        return sortDataList
     }
 }
 

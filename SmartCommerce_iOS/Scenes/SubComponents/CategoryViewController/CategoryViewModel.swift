@@ -14,7 +14,6 @@ struct CategoryViewModel {
     // SubComponents
     let eventCategoryListViewModel = EventCategoryListViewModel()
     let categoryListViewModel = CategoryListViewModel()
-    let itemTypeTableViewModel = ItemTypeTableViewModel()
     
     // View -> ViewModel
     let categoryViewWillAppear = PublishRelay<Void>()
@@ -33,5 +32,18 @@ struct CategoryViewModel {
         categoryListCellData
             .bind(to: categoryListViewModel.categoryCellData)
             .disposed(by: disposeBag)
+        
+        let itemTypeResult = categoryViewWillAppear
+            .withLatestFrom(model.fetchItemType())
+            .share()
+        
+        let itemTypeValue = itemTypeResult
+            .compactMap(model.getItemTypeValue(_:))
+        
+        let itemTypeListCellData = itemTypeValue
+            .map(model.getItemTypeListCellData(_:))
+        
+        let sortItemTypeListData = itemTypeListCellData
+            .map(model.getSoryItemTypeDataListByCategory(_:))
     }
 }

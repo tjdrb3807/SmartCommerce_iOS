@@ -41,7 +41,6 @@ final class BannerCollectionView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        DispatchQueue.main.async { self.collectionView.scrollToItem(at: [0, 1], at: .left, animated: false) }
         self.autoBannerPageTimer()
         self.layout()
     }
@@ -54,8 +53,11 @@ final class BannerCollectionView: UIView {
         viewModel.bannerPageDataList
             .drive(onNext: {
                 self.bannerPageDataList = $0
-                self.addBannerData()
-            }).disposed(by: disposeBag)
+                DispatchQueue.main.async {
+                    self.collectionView.scrollToItem(at: [0, 1],
+                                                     at: .left,
+                                                     animated: false)
+                }}).disposed(by: disposeBag)
     }
     
     // 무한 스크롤을 하기위한 베너 추가

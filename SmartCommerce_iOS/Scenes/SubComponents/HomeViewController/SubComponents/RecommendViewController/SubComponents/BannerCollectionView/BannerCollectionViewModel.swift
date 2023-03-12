@@ -10,7 +10,7 @@ import RxCocoa
 
 struct BannerCollectionViewModel {
     // ParentViewModel -> Model
-    let bannerPageData = PublishSubject<[BannerPageData]>()
+    let bannerPageData = PublishRelay<[BannerPageData]>()
     
     // ViewModel -> View
     let bannerPageDataList: Driver<[BannerPageData]>

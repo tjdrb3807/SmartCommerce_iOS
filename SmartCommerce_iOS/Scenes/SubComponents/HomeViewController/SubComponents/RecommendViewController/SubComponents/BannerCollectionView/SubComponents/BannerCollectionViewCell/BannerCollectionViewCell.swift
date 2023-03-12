@@ -46,7 +46,10 @@ final class BannerCollectionViewCell: UICollectionViewCell {
     }
     
     func setData(_ data: BannerPageData) {
-        imageView.kf.setImage(with: data.thumbnailURL)
-        contentLabel.text = data.content
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.imageView.kf.setImage(with: data.thumbnailURL)
+            self.contentLabel.text = data.content
+        }
     }
 }
