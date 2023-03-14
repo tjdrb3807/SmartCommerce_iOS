@@ -51,22 +51,22 @@ struct CategoryModel {
             }
     }
     
-    func getSoryItemTypeDataListByCategory(_ data: [ItemTypeData]) -> [ItemTypeByCategoryData] {
-        var sortDataList: [ItemTypeByCategoryData] = []
+    func sortItemTypeByCategory(_ data: [ItemTypeData]) -> [ItemTypeSection] {
+        var sortDataList: [ItemTypeSection] = []
         var categoryId: Int = (data.first?.categoryID)!
         var index = 0
         
-        sortDataList.append(ItemTypeByCategoryData(categoryId: categoryId, itemTypeList: [ItemTypeData]()))
+        sortDataList.append(ItemTypeSection(categoryId: categoryId, items: [ItemTypeData]()))
         
         for itemType in data {
             if sortDataList[index].categoryId == itemType.categoryID {
-                sortDataList[index].itemTypeList?.append(itemType)
+                sortDataList[index].items.append(itemType)
             } else {
                 categoryId = itemType.categoryID!
                 index += 1
                 
-                sortDataList.append(ItemTypeByCategoryData(categoryId: categoryId, itemTypeList: [ItemTypeData]()))
-                sortDataList[index].itemTypeList?.append(itemType)
+                sortDataList.append(ItemTypeSection(categoryId: categoryId, items: [ItemTypeData]()))
+                sortDataList[index].items.append(itemType)
             }
         }
         

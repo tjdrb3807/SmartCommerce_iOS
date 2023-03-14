@@ -13,7 +13,7 @@ struct CategoryListViewModel {
     // Parent ViewModel -> ViewModel
     let categoryCellData = PublishSubject<[CategoryCellData]>()
     
-    // ViewModel
+    // ViewModel -> View
     let cellData: Driver<[CategoryCellData]>
     
     init() {

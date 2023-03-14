@@ -54,22 +54,6 @@ final class CategoryListView: UIView {
     }
 }
 
-struct CategoryListViewCell_Previews: PreviewProvider {
-    static var previews: some View {
-        Container()
-    }
-    
-    struct Container: UIViewRepresentable {
-        func makeUIView(context: Context) -> UIView {
-            CategoryListView()
-        }
-        
-        func updateUIView(_ uiView: UIView, context: Context) {}
-        
-        typealias UIViewType = UIView
-    }
-}
-
 
 
 

@@ -10,4 +10,5 @@ target 'SmartCommerce_iOS' do
   pod 'RxSwift', '6.5.0'
   pod 'RxCocoa', '6.5.0' 
   pod 'Kingfisher', '~> 7.0'
+  pod 'RxDataSources', '~>5.0'
 end

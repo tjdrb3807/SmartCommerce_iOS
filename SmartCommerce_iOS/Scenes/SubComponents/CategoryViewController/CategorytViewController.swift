@@ -18,6 +18,7 @@ final class CategoryViewController: UIViewController {
     private let separator = UIView()
     private let eventCategoryListView = EventCategoryListView()
     private let categoryListView = CategoryListView()
+    private let itemTypeCollectionView = ItemTypeCollectionView()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -33,6 +34,7 @@ final class CategoryViewController: UIViewController {
     func bind(_ viewModel: CategoryViewModel) {
         self.eventCategoryListView.bind(viewModel.eventCategoryListViewModel)
         self.categoryListView.bind(viewModel.categoryListViewModel)
+        self.itemTypeCollectionView.bind(viewModel.itemTypeCollectionViewModel)
         
         self.rx.viewWillAppear
             .bind(to: viewModel.categoryViewWillAppear)
@@ -44,7 +46,7 @@ final class CategoryViewController: UIViewController {
     }
     
     private func layout() {
-        [searchBarView, separator, eventCategoryListView, categoryListView].forEach { view.addSubview($0) }
+        [searchBarView, separator, eventCategoryListView, categoryListView, itemTypeCollectionView].forEach { view.addSubview($0) }
 
         searchBarView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
@@ -69,6 +71,12 @@ final class CategoryViewController: UIViewController {
             $0.leading.equalToSuperview()
             $0.bottom.equalToSuperview()
             $0.width.equalTo(UIScreen.main.bounds.width / 3.5)
+        }
+        
+        itemTypeCollectionView.snp.makeConstraints {
+            $0.top.equalTo(categoryListView.snp.top)
+            $0.leading.equalTo(categoryListView.snp.trailing)
+            $0.trailing.bottom.equalToSuperview()
         }
     }
 }
