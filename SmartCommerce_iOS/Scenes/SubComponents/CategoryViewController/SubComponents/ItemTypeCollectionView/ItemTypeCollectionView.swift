@@ -20,6 +20,7 @@ final class ItemTypeCollectionView: UIView {
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor(red: 239/255, green: 239/255, blue: 240/255, alpha: 1.0)
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.register(ItemTypeCollectionViewCell.self, forCellWithReuseIdentifier: "ItemTypeCollectionViewCell")
         collectionView.delegate = self
         
@@ -40,6 +41,18 @@ final class ItemTypeCollectionView: UIView {
         viewModel.cellData
             .drive(itemTypeCollectionView.rx.items(dataSource: configureDataSource()))
             .disposed(by: disposeBag)
+        
+        itemTypeCollectionView.rx.didScroll
+            .asObservable()
+            .map { Void -> Int in
+                self.currentCategoryId(offset: Int(self.itemTypeCollectionView.contentOffset.y))
+            }.bind(to: viewModel.currentCategoryId)
+            .disposed(by: disposeBag)
+        
+        itemTypeCollectionView.rx.itemSelected
+            .bind(onNext: {
+                print($0)
+            }).disposed(by: disposeBag)
     }
     
     private func configureDataSource() -> RxCollectionViewSectionedReloadDataSource<ItemTypeSection> {
@@ -55,6 +68,25 @@ final class ItemTypeCollectionView: UIView {
         addSubview(itemTypeCollectionView)
         
         itemTypeCollectionView.snp.makeConstraints { $0.edges.equalToSuperview() }
+    }
+    
+    private func currentCategoryId(offset: Int) -> Int {
+        switch offset {
+        case 0...540:
+            return 0
+        case 541...1647:
+            return 1
+        case 1648...2088:
+            return 2
+        case 2089...2723:
+            return 3
+        case 2724...3135:
+            return 4
+        default:
+            break
+        }
+        
+        return 0
     }
 }
 

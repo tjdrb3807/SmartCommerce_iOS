@@ -52,5 +52,9 @@ struct CategoryViewModel {
         itemTypeSection
             .bind(to: self.itemTypeCollectionViewModel.itemTypeDataList)
             .disposed(by: disposeBag)
+        
+        self.itemTypeCollectionViewModel.currentCategoryId
+            .bind(to: categoryListViewModel.currentCateogryId)
+            .disposed(by: disposeBag)
     }
 }

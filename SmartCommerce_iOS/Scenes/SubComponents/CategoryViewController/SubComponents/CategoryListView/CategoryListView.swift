@@ -45,6 +45,13 @@ final class CategoryListView: UIView {
                 return cell
                 
             }.disposed(by: disposeBag)
+        
+        viewModel.categoryId
+            .drive(onNext: { [self] in
+                for _ in 0..<tableView.numberOfRows(inSection: 0) {
+                    tableView.selectRow(at: IndexPath(row: $0, section: 0), animated: false, scrollPosition: .none)
+                }
+            }).disposed(by: disposeBag)
     }
     
     private func layout() {

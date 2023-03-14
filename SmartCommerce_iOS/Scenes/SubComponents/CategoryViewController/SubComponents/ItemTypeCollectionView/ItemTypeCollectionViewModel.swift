@@ -15,6 +15,9 @@ struct ItemTypeCollectionViewModel {
     // ViewModel -> View
     let cellData: Driver<[ItemTypeSection]>
     
+    // View -> ViewModel
+    let currentCategoryId = PublishRelay<Int>()
+    
     init() {
         self.cellData = itemTypeDataList
             .asDriver(onErrorJustReturn: [])

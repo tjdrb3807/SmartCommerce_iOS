@@ -12,7 +12,6 @@ final class CategoryListViewCell: UITableViewCell {
     private lazy var titleLable: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15.0, weight: .light)
-        label.text = "상의"
         
         return label
     }()
