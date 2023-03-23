@@ -141,15 +141,8 @@
         "item_type_title": "상의 신상",
         "item_type_thumbnail_image_url": "https://image.msscdn.net/images/goods_img/20220810/2710588/2710588_1_220.jpg"
     }
-    ``` 
-
-<br>
-<br>
-<br>
-
-
-## Code Review
-* 
+    ```
+  
 
 
  
