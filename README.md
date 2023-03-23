@@ -2,13 +2,13 @@
 
 
 ## Architecture
----
+
 ### MVVM
 
 <br>
 
 ## Code Style
----
+
 * ### 디렉토리 구성
   * 화면 폴더(`Scenes`), 데이터 폴더(`Entities`), 네트워크 폴더(`Network`)를 구분한다.
   * 화면 폴더 내에는 `ViewController` 폴더, `SubComponents` 폴더를 갖는다.
@@ -46,7 +46,7 @@
 
 * ### 뷰 선언과 동시에 초기화(클로저 사용)
   * 별도의 함수를 만들어서 각가의 뷰마다 속성을 정의하면 개인적으로 코드가 지저분해보인다.
-  * 뷰가 선언된 부분에서 속성도 같이 처리해서 해당 뷰가 어떤 속성을 갖는 가독성을 높히도록 한다.
+  * 뷰가 선언된 부분에서 속성도 같이 처리해서 해당 뷰가 어떤 속성을 갖는지 가독성을 높히도록 한다.
     ```Swift
     private lazy var shoopingBasketButton: UIButton = {
         let button = UIButton()
@@ -72,7 +72,7 @@
 <br>
 
 ## API
----
+
 
 * ### GET vs POST
   * 해당 프로젝트에서는 Requet Body에 DTO를 넣는 로직은 없지만, GET을 사용할때 요청 정보를 Query Parameter로 넘기게 되면 보안에 취약할 수 있으므로 `POST` 방식을 채택한다.(개인적인 견해)
@@ -82,16 +82,74 @@
  * ### 배너 API
    * API 설명
      * HomeView/RecommendView 에 위치한 배너 가각의 이미지와 텍스트 정보를 가져온다
-     * URL: http/localhost:8080/commerce/api/v1/home/eventBanner
-     * HTTP Method: POST
-     * ResponseDTO
+   * URL: http/localhost:8080/commerce/api/v1/home/eventBanner
+   * HTTP Method: POST    
+   * Response DTO
         ```JSON
         {
             "event_banner_id": 1,
-            "event_content": "...",
-            "thumbnail_image_url": "..."
+            "event_content": "ON & OFF",
+            "thumbnail_image_url": "https://image.msscdn.net/images/plan_w_mobile_img/2023030213534100000045627.jpg"
         }
         ``` 
+
+<br>
+
+* ### 이벤트 카테고리 API
+  * API 설명
+    * HomeView/RecommedView, CategoryView 상단에 UICollectionView Cell에 이미지와 타이들 정보를 가져오는 API
+    * thumbnail_image_url은 Home/RecommendView CollectionView에 사용
+    * thumbnail_text_image_url은 CategoryView CollectionView에 사용
+  * URL: http/localhost:8080/commerce/api/v1/category/event
+  * HTTP Method: POST
+  * Response DTO
+    ```JSON   
+    { 
+        "event_title": "럭셔리",
+        "thumbnail_image_url": "https://image.msscdn.net/mfile_s01/_lookbook/list63f2d10b7f7ec",
+        "thumbnail_text_image_url": "https://image.msscdn.net/images/event_banner/2022091316493400000037242.png"
+    }
+      ``` 
+
+<br>
+
+* ### 카테고리 API
+  * API 설명
+    * CategoryView 죄측 TableView에 나열할 카테고리 PK와 텍스트 정보를 가져온다.
+  * URL: http:/localhost:8080/commerce/api/v1/category
+  * HTTP Method: POST
+  * Response DTO
+    ```JSON
+    {
+        "category_id": 1,
+        "category_title": "상의"
+    }
+    ``` 
+
+<br>
+
+* ### 아이템 API
+  * API 설명
+    * CategoryView 우측 CollectionView에 나열한 아이템 PK와 카테고리 FK, 이미지, 텍스트 정보를 가져온다.
+  * URL: http:/localhost:8080/commerce/api/v1/itemType
+  * HTTP Method: POST
+  * Response DTO
+    ```JSON
+    {
+        "id": 1,
+        "category_id": 1,
+        "item_type_title": "상의 신상",
+        "item_type_thumbnail_image_url": "https://image.msscdn.net/images/goods_img/20220810/2710588/2710588_1_220.jpg"
+    }
+    ``` 
+
+<br>
+<br>
+<br>
+
+
+## Code Review
+* 
 
 
  
