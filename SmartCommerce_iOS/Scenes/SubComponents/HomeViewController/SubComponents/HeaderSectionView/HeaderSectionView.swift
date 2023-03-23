@@ -27,7 +27,7 @@ final class HeaderSectionView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "MUSINSA"
+        label.text = "COMMERCE"
         label.textColor = .black
         label.font = .systemFont(ofSize: 25.0, weight: .medium)
         

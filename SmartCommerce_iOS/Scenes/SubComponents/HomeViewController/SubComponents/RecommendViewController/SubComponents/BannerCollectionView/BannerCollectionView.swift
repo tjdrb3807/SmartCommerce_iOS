@@ -70,7 +70,7 @@ final class BannerCollectionView: UIView {
     }
     
     private func autoBannerPageTimer() {
-        let _: Timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (Timer) in
+        let _: Timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (Timer) in
             self.moveBannerPage()
         }
     }
