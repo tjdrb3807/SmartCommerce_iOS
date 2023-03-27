@@ -20,7 +20,7 @@ struct EventCategoryListViewModel {
     init(model: EventCategoryListModel = EventCategoryListModel()) {
         
         let sample = eventCategoryCellData
-            .map(model.getEventCagegoryListCellData(_:))
+            .map(model.getEventCategoryListCellData(_:))
         
         self.cellData = sample
             .asDriver(onErrorJustReturn: [])

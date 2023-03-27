@@ -10,7 +10,7 @@ import RxSwift
 struct EventCategoryListModel {
     let fetchEventCategoryNetwork = FetchEventCategoryNetwork()
     
-    func getEventCagegoryListCellData(_ value: EventCategoryDTO) -> [EventCategoryCellData] {
+    func getEventCategoryListCellData(_ value: EventCategoryDTO) -> [EventCategoryCellData] {
         value.documents
             .map { eventCategoryDocument in
                 let thumbnailURL = URL(string: eventCategoryDocument.thumbnailURL ?? "")
