@@ -47,7 +47,6 @@ final class EventCategoryListView: UIView {
                 cell.setData(data)
                 
                 return cell
-                
             }.disposed(by: disposeBag)
     }
     
